@@ -1,0 +1,30 @@
+@model IEnumerable<BookOnline.ViewModels.SachViewModel>
+@{
+    var tieuDe = ViewData["TieuDe"] as string ?? "Danh Sách Sách";
+    ViewData["Title"] = tieuDe;
+}
+
+<div class="card shadow-sm border-0 mb-4 bg-white p-3">
+    <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
+        <h4 class="fw-bold text-success mb-0">
+            <i class="bi bi-collection-fill me-2"></i> @tieuDe
+        </h4>
+        <span class="badge bg-danger rounded-pill fs-6">@Model.Count() đầu sách</span>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="pn-product-grid">
+            @foreach (var book in Model)
+            {
+                <partial name="_SachCardPartial" model="book" />
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center py-4">
+            Không có dữ liệu sách trong danh mục này.
+        </div>
+    }
+</div>

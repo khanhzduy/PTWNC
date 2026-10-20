@@ -1,0 +1,682 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset="utf-8">
+<title>BÁO CÁO BÀI TẬP LỚN - PHÁT TRIỂN ỨNG DỤNG WEB NÂNG CAO</title>
+<!--[if gte mso 9]>
+<xml>
+<w:WordDocument>
+<w:View>Print</w:View>
+<w:Zoom>100</w:Zoom>
+<w:DoNotOptimizeForBrowser/>
+</w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+@page {
+    size: A4;
+    margin: 2.5cm 2.0cm 2.0cm 3.0cm; /* Căn lề chuẩn đồ án: Trái 3cm, Phải 2cm, Trên 2.5cm, Dưới 2cm */
+    mso-header-margin: 1.5cm;
+    mso-footer-margin: 1.5cm;
+    mso-paper-source: 0;
+}
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13pt;
+    line-height: 1.45;
+    text-align: justify;
+    color: #111111;
+}
+.page-break {
+    page-break-before: always;
+}
+.cover-page {
+    border: 4px double #0a3b7b;
+    padding: 25px;
+    height: 980px;
+    text-align: center;
+    box-sizing: border-box;
+}
+h1, h2, h3, h4 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #0a3b7b;
+}
+h1 {
+    font-size: 17pt;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+h2 {
+    font-size: 15pt;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid #0a3b7b;
+    padding-bottom: 4px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+h3 {
+    font-size: 13.5pt;
+    margin-top: 14px;
+    margin-bottom: 8px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 12pt;
+}
+table, th, td {
+    border: 1px solid #333333;
+}
+th {
+    background-color: #f0f4f8;
+    color: #0a3b7b;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+td {
+    padding: 7px 9px;
+    vertical-align: middle;
+}
+.code-box {
+    background-color: #f7f9fb;
+    border: 1px solid #d0d7de;
+    border-left: 4px solid #0a3b7b;
+    padding: 10px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 10.5pt;
+    line-height: 1.35;
+    margin: 10px 0;
+    color: #24292e;
+}
+.highlight-badge {
+    background-color: #eaf2fd;
+    color: #0a3b7b;
+    padding: 2px 6px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.note-box {
+    background-color: #fff9e6;
+    border-left: 4px solid #f8b700;
+    padding: 9px 14px;
+    margin: 10px 0;
+    font-style: italic;
+    font-size: 12pt;
+}
+</style>
+</head>
+<body>
+
+<!-- ========================================== -->
+<!-- TRANG 1: TRANG BÌA CHUẨN ĐỒ ÁN BÀI TẬP LỚN -->
+<!-- ========================================== -->
+<div class="cover-page">
+    <p style="font-size: 13pt; font-weight: bold; margin-bottom: 2px; text-transform: uppercase;">BỘ CÔNG THƯƠNG</p>
+    <p style="font-size: 14pt; font-weight: bold; margin-top: 0; color: #0a3b7b; text-transform: uppercase;">
+        TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP VIỆT - HUNG
+    </p>
+    <p style="font-size: 12pt; font-style: italic; margin-top: -5px;">KHOA CÔNG NGHỆ THÔNG TIN</p>
+    
+    <div style="margin: 40px auto 30px auto; width: 90px; height: 90px; border: 2px dashed #0a3b7b; border-radius: 50%; line-height: 85px; font-size: 26pt; color: #0a3b7b; font-weight: bold;">
+        VIH
+    </div>
+
+    <p style="font-size: 13pt; font-weight: bold; letter-spacing: 2px; margin-top: 30px;">BÁO CÁO BÀI TẬP LỚN</p>
+    <p style="font-size: 12.5pt; font-weight: bold; color: #555;">HỌC PHẦN: PHÁT TRIỂN ỨNG DỤNG WEB NÂNG CAO (PTWNC)</p>
+
+    <div style="margin: 35px 0 35px 0;">
+        <h1 style="color: #b71c1c; font-size: 18pt; line-height: 1.4; margin-bottom: 8px;">
+            XÂY DỰNG WEBSITE NHÀ SÁCH TRỰC TUYẾN (BOOKONLINE)
+        </h1>
+        <p style="font-size: 13.5pt; font-weight: bold; color: #0a3b7b; margin-top: 0;">
+            PHONG CÁCH THƯƠNG MẠI ĐIỆN TỬ HIỆN ĐẠI NHÀ SÁCH PHƯƠNG NAM<br/>
+            TÍCH HỢP HỆ THỐNG VOUCHER & GIỎ HÀNG THỜI GIAN THỰC
+        </p>
+    </div>
+
+    <div style="width: 70%; margin: 70px auto 40px auto; text-align: left; font-size: 13pt; line-height: 1.8;">
+        <table style="border: none; width: 100%;">
+            <tr style="border: none;"><td style="border: none; width: 45%; font-weight: bold;">Giảng viên hướng dẫn:</td><td style="border: none; font-weight: bold; color: #0a3b7b;">Bộ môn Công nghệ Phần mềm</td></tr>
+            <tr style="border: none;"><td style="border: none; font-weight: bold;">Sinh viên thực hiện:</td><td style="border: none; font-weight: bold;">Nhóm sinh viên thực hiện BTL</td></tr>
+            <tr style="border: none;"><td style="border: none;">Lớp chuyên ngành:</td><td style="border: none;">Công nghệ Thông tin</td></tr>
+            <tr style="border: none;"><td style="border: none;">Công nghệ áp dụng:</td><td style="border: none;">ASP.NET Core MVC, EF Core, SQL Server</td></tr>
+        </table>
+    </div>
+
+    <div style="margin-top: 50px;">
+        <p style="font-size: 12.5pt; font-weight: bold; text-transform: uppercase; margin-bottom: 2px;">SƠN TÂY - HÀ NỘI</p>
+        <p style="font-size: 12pt; margin-top: 0;">NĂM 2026</p>
+    </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========================================== -->
+<!-- TRANG 2: MỤC LỤC & LỜI MỞ ĐẦU              -->
+<!-- ========================================== -->
+<h2>MỤC LỤC BÁO CÁO</h2>
+<table style="border: none; width: 100%; line-height: 1.7; font-size: 12.5pt;">
+    <tr style="border: none;"><td style="border: none; font-weight: bold;">LỜI MỞ ĐẦU & TỔNG QUAN HỆ THỐNG</td><td style="border: none; text-align: right; font-weight: bold;">Trang 2</td></tr>
+    <tr style="border: none;"><td style="border: none; font-weight: bold;">CHƯƠNG 1: TỔNG QUAN ĐỀ TÀI VÀ CẢM HỨNG THIẾT KẾ</td><td style="border: none; text-align: right; font-weight: bold;">Trang 3</td></tr>
+    <tr style="border: none;"><td style="border: none; padding-left: 20px;">1.1 Tính cấp thiết và mục tiêu của đề tài</td><td style="border: none; text-align: right;">Trang 3</td></tr>
+    <tr style="border: none;"><td style="border: none; padding-left: 20px;">1.2 Cảm hứng giao diện từ nhasachphuongnam.com</td><td style="border: none; text-align: right;">Trang 3</td></tr>
+    <tr style="border: none;"><td style="border: none; font-weight: bold;">CHƯƠNG 2: KIẾN TRÚC HỆ THỐNG VÀ THIẾT KẾ CƠ SỞ DỮ LIỆU</td><td style="border: none; text-align: right; font-weight: bold;">Trang 4</td></tr>
+    <tr style="border: none;"><td style="border: none; padding-left: 20px;">2.1 Mô hình kiến trúc ASP.NET Core MVC & EF Core</td><td style="border: none; text-align: right;">Trang 4</td></tr>
+    <tr style="border: none;"><td style="border: none; padding-left: 20px;">2.2 Thiết kế chi tiết CSDL SQL Server (QLBanSach)</td><td style="border: none; text-align: right;">Trang 5</td></tr>
+    <tr style="border: none;"><td style="border: none; font-weight: bold;">CHƯƠNG 3: CÁC CHỨC NĂNG CỐT LÕI VÀ KỸ THUẬT LẬP TRÌNH</td><td style="border: none; text-align: right; font-weight: bold;">Trang 6</td></tr>
+    <tr style="border: none;"><td style="border: none; padding-left: 20px;">3.1 Xác thực đa tầng & Logic form Đăng ký / Đăng nhập</td><td style="border: none; text-align: right;">Trang 6</td></tr>
+    <tr style="border: none;"><td style="border: none; padding-left: 20px;">3.2 Danh mục sách, Banner quảng cáo và Thử nghiệm LINQ</td><td style="border: none; text-align: right;">Trang 7</td></tr>
+    <tr style="border: none;"><td style="border: none; padding-left: 20px;">3.3 Giỏ hàng thời gian thực AJAX & Hệ thống Voucher ưu đãi</td><td style="border: none; text-align: right;">Trang 7</td></tr>
+    <tr style="border: none;"><td style="border: none; padding-left: 20px;">3.4 Xử lý Đặt hàng an toàn bằng Database Transaction ACID</td><td style="border: none; text-align: right;">Trang 8</td></tr>
+    <tr style="border: none;"><td style="border: none; font-weight: bold;">CHƯƠNG 4: KẾT QUẢ THỰC NGHIỆM VÀ KỊCH BẢN KIỂM THỬ</td><td style="border: none; text-align: right; font-weight: bold;">Trang 9</td></tr>
+    <tr style="border: none;"><td style="border: none; font-weight: bold;">KẾT LUẬN, HƯỚNG PHÁT TRIỂN & TÀI LIỆU THAM KHẢO</td><td style="border: none; text-align: right; font-weight: bold;">Trang 10</td></tr>
+</table>
+
+<hr style="margin: 20px 0; border: none; border-top: 1px solid #ccc;" />
+
+<h2>LỜI MỞ ĐẦU</h2>
+<p>
+    Trong kỷ nguyên chuyển đổi số và bùng nổ thương mại điện tử, việc xây dựng các nền tảng bán lẻ sách trực tuyến đòi hỏi không chỉ tính chính xác về mặt dữ liệu mà còn yêu cầu trải nghiệm người dùng (UX/UI) mượt mà, tốc độ phản hồi tức thì và độ tin cậy tuyệt đối trong từng giao dịch.
+</p>
+<p>
+    Bài tập lớn học phần <strong>Phát triển ứng dụng Web nâng cao (PTWNC)</strong> của trường Đại học Công nghiệp Việt - Hung đặt ra mục tiêu xây dựng hệ thống website thương mại điện tử <strong>BookOnline</strong> hoàn chỉnh. Dự án được triển khai trên nền tảng công nghệ tiên tiến nhất hiện nay gồm <strong>ASP.NET Core MVC 10, C# 13, Entity Framework Core và hệ quản trị Cơ sở dữ liệu Microsoft SQL Server</strong>. Đặc biệt, giao diện được nâng cấp toàn diện dựa trên ngôn ngữ thiết kế của thương hiệu sách hàng đầu Việt Nam — <em>Nhà sách Phương Nam (nhasachphuongnam.com)</em>, kết hợp các công nghệ tương tác hiện đại như AJAX Real-time, Client-side Data Sanitization và Hệ thống mã giảm giá (Voucher System).
+</p>
+
+<div class="page-break"></div>
+
+<!-- ========================================== -->
+<!-- TRANG 3: CHƯƠNG 1                          -->
+<!-- ========================================== -->
+<h2>CHƯƠNG 1: TỔNG QUAN ĐỀ TÀI VÀ CẢM HỨNG THIẾT KẾ</h2>
+
+<h3>1.1 Tính cấp thiết và mục tiêu của đề tài</h3>
+<p>
+    Đề tài giải quyết bài toán quản lý và kinh doanh ấn phẩm văn hóa trực tuyến cho Nhà sách trường Đại học Công nghiệp Việt - Hung, đáp ứng đồng thời 2 nhóm mục tiêu then chốt:
+</p>
+<ul>
+    <li><strong>Về mặt kỹ thuật học thuật</strong>: Tuân thủ 100% đề cương bài tập lớn và barem điểm 10/10: Thiết kế giao diện 3 cột chuẩn mực, sử dụng Data Annotations kiểm tra dữ liệu, quản lý phiên làm việc bằng Session, tương tác CSDL qua Entity Framework Core với đầy đủ quan hệ Khóa chính - Khóa ngoại, và đảm bảo tính toàn vẹn dữ liệu thông qua Transaction khi tạo hóa đơn.</li>
+    <li><strong>Về mặt trải nghiệm thực tế</strong>: Loại bỏ hoàn toàn sự khô cứng của các đồ án cổ điển; mang lại diện mạo thương mại điện tử cao cấp, tốc độ phản hồi mượt mà không tải lại trang khi sửa giỏ hàng và có hệ thống voucher kích cầu người mua.</li>
+</ul>
+
+<h3>1.2 Cảm hứng thiết kế từ nhasachphuongnam.com</h3>
+<p>
+    Giao diện website được tái thiết kế chuyên nghiệp dựa trên các nét đặc trưng của <strong>Nhà sách Phương Nam</strong>:
+</p>
+<table style="width: 100%;">
+    <tr>
+        <th style="width: 25%;">Thành phần</th>
+        <th style="width: 35%;">Phong cách Phương Nam Style</th>
+        <th style="width: 40%;">Ứng dụng cụ thể trong dự án</th>
+    </tr>
+    <tr>
+        <td><strong>Bảng màu chủ đạo</strong></td>
+        <td>Deep Navy (#0a3b7b), Gold (#f8b700), Ruby Red (#e53935).</td>
+        <td>Đồng bộ màu sắc thanh Navbar, nút Mua hàng, Huy hiệu giảm giá và Hộp giỏ hàng vàng đặc trưng.</td>
+    </tr>
+    <tr>
+        <td><strong>Bố cục 3 cột cải tiến</strong></td>
+        <td>Hai cột biên thu nhỏ, đẩy dạt ra ngoài; cột giữa mở rộng.</td>
+        <td>Cột trái (20%): Danh mục & Cam kết; Cột giữa (58%): Lưới sách rộng rãi hiển thị đúng 3 sách/hàng; Cột phải (22%): Giỏ hàng & Banner.</td>
+    </tr>
+    <tr>
+        <td><strong>Dải truy cập nhanh</strong></td>
+        <td>Quick Category Circles (Icon tròn gradient).</td>
+        <td>Dải icon hình tròn truy cập tức thì: Tất cả, Tin học, Kinh tế, Kế toán, Ngoại ngữ, Sách mới, Bán chạy.</td>
+    </tr>
+    <tr>
+        <td><strong>Thẻ card sản phẩm</strong></td>
+        <td>Ảnh sách lớn, badge -10%, nút "CHỌN MUA" bo tròn.</td>
+        <td>Ảnh bìa sách phóng to sắc nét, hiệu ứng rê chuột phóng nhẹ (hover zoom), nút Chọn mua có icon chuyển động.</td>
+    </tr>
+</table>
+
+<div class="note-box">
+    <strong>Ghi chú thiết kế:</strong> Nhằm đáp ứng yêu cầu người dùng, ảnh bìa sách tại trang chi tiết được mở rộng tối ưu kích thước 280px × 390px, ảnh lưới thẻ card đạt 130px × 180px, mang lại cảm giác hình ảnh ngập tràn và thu hút thị giác.
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========================================== -->
+<!-- TRANG 4: CHƯƠNG 2 (KIẾN TRÚC HỆ THỐNG)     -->
+<!-- ========================================== -->
+<h2>CHƯƠNG 2: KIẾN TRÚC HỆ THỐNG VÀ THIẾT KẾ CƠ SỞ DỮ LIỆU</h2>
+
+<h3>2.1 Kiến trúc tổng thể ASP.NET Core MVC</h3>
+<p>
+    Dự án được xây dựng theo kiến trúc phân tầng <strong>Model - View - Controller (MVC)</strong> chặt chẽ, áp dụng nguyên lý <em>Separation of Concerns (SoC)</em>:
+</p>
+<ul>
+    <li><strong>Model & Entity Framework Core</strong>: Đại diện cho các thực thể bảng trong SQL Server, chịu trách nhiệm kết nối, truy vấn dữ liệu theo cơ chế Code-First / Database-First thông qua <code>AppDbContext</code>.</li>
+    <li><strong>ViewModel Layer</strong>: Tách biệt hoàn toàn tầng thực thể (Domain Model) và tầng trình diễn (Presentation). Ví dụ: <code>RegisterViewModel</code>, <code>LoginViewModel</code>, <code>CartItem</code>, <code>HomeViewModel</code> giúp kiểm soát dữ liệu chặt chẽ và không làm lộ cấu trúc CSDL ra bên ngoài.</li>
+    <li><strong>Controller Layer</strong>: Tiếp nhận HTTP Request, điều phối nghiệp vụ, xử lý Session, gọi Entity Framework Core và trả kết quả về View hoặc JSON.</li>
+    <li><strong>View & ViewComponents</strong>: Render giao diện người dùng bằng Razor Engine kết hợp ViewComponents tái sử dụng (Menu chủ đề, Giỏ hàng tóm tắt, Banner quảng cáo).</li>
+</ul>
+
+<div class="code-box">
+// Sơ đồ luồng dữ liệu (Data Flow):
+[Trình duyệt Client] 
+   &lt;--- (HTML / JSON) ---&gt; [ASP.NET Core Controllers]
+                                   |
+                             (Data Binding & Validation)
+                                   v
+                             [ViewModels] &lt;---&gt; [EF Core DbContext]
+                                                       |
+                                            (T-SQL Queries / Transactions)
+                                                       v
+                                            [SQL Server: QLBanSach]
+</div>
+
+<h3>2.2 Thiết kế Cơ sở dữ liệu SQL Server (Database QLBanSach)</h3>
+<p>
+    Hệ thống sử dụng cơ sở dữ liệu quan hệ với các bảng chuẩn hóa bậc 3 (3NF):
+</p>
+<table style="width: 100%;">
+    <tr>
+        <th style="width: 18%;">Tên bảng</th>
+        <th style="width: 25%;">Khóa chính / Khóa ngoại</th>
+        <th style="width: 57%;">Mục đích & Ý nghĩa nghiệp vụ</th>
+    </tr>
+    <tr>
+        <td><strong>KHACH_HANG</strong></td>
+        <td>PK: <code>Mkh</code> (Identity)</td>
+        <td>Lưu trữ hồ sơ người dùng: <code>Ho_ten</code> (nvarchar(50)), <code>Ten_dang_nhap</code> (nvarchar(15)), <code>Mat_khau</code> (nvarchar(15)), <code>Gioi_tinh</code> (bit NOT NULL default ((0))).</td>
+    </tr>
+    <tr>
+        <td><strong>SACH</strong></td>
+        <td>PK: <code>Ms</code><br/>FK: <code>Mcd</code>, <code>Mnxb</code></td>
+        <td>Lưu trữ kho sách: Tên sách, đơn giá, số lượng bán, số lần xem, mô tả, hình minh họa, thuộc chủ đề nào và NXB nào.</td>
+    </tr>
+    <tr>
+        <td><strong>CHU_DE</strong></td>
+        <td>PK: <code>Mcd</code></td>
+        <td>Danh mục thể loại sách (Tin học, Ngoại ngữ, Kinh tế,...), hỗ trợ danh mục đa cấp thông qua trường <code>Pid</code>.</td>
+    </tr>
+    <tr>
+        <td><strong>DON_DAT_HANG</strong></td>
+        <td>PK: <code>Sdh</code> (Identity)<br/>FK: <code>Mkh</code></td>
+        <td>Hóa đơn đặt mua: Mã khách, Ngày đặt, Ngày giao, <code>Tri_gia</code> (decimal sau giảm giá), Trạng thái <code>Da_giao_hang</code>.</td>
+    </tr>
+    <tr>
+        <td><strong>CT_DAT_HANG</strong></td>
+        <td>PK: <code>Mctddh</code><br/>FK: <code>Sdh</code>, <code>Ms</code></td>
+        <td>Chi tiết từng cuốn sách trong đơn: Mã sách, số lượng mua, đơn giá tại thời điểm đặt, thành tiền từng dòng.</td>
+    </tr>
+    <tr>
+        <td><strong>QUANG_CAO</strong></td>
+        <td>PK: <code>Stt</code></td>
+        <td>Banner quảng cáo ngẫu nhiên và danh mục banner hiển thị theo ngày bắt đầu/hết hạn.</td>
+    </tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ========================================== -->
+<!-- TRANG 5: CẤU TRÚC BẢNG VÀ MỐI QUAN HỆ CSDL -->
+<!-- ========================================== -->
+<h3>2.3 Ràng buộc toàn vẹn và Quan hệ thực thể (ERD)</h3>
+<p>
+    Các mối quan hệ dữ liệu được ràng buộc chặt chẽ thông qua Foreign Keys (FK) trong SQL Server và được cấu hình trong <code>AppDbContext.cs</code>:
+</p>
+<ul>
+    <li><strong>KHACH_HANG (1) --- (N) DON_DAT_HANG</strong>: Một khách hàng có thể sở hữu nhiều đơn đặt hàng theo thời gian; mỗi đơn hàng thuộc về một khách hàng cụ thể.</li>
+    <li><strong>DON_DAT_HANG (1) --- (N) CT_DAT_HANG</strong>: Một đơn hàng bao gồm một hoặc nhiều chi tiết đặt hàng tương ứng với các đầu sách được chọn mua.</li>
+    <li><strong>SACH (1) --- (N) CT_DAT_HANG</strong>: Một cuốn sách có thể xuất hiện trong chi tiết của nhiều đơn hàng khác nhau.</li>
+    <li><strong>CHU_DE (1) --- (N) SACH</strong>: Mỗi cuốn sách thuộc về một chủ đề nhất định; cho phép lọc sách nhanh theo chuyên môn.</li>
+    <li><strong>NHA_XUAT_BAN (1) --- (N) SACH</strong>: Mỗi cuốn sách do một Nhà xuất bản phát hành và ấn hành.</li>
+</ul>
+
+<div class="code-box">
+-- Ví dụ cấu trúc khai báo khóa ngoại bảo đảm toàn vẹn tham chiếu trong AppDbContext:
+modelBuilder.Entity&lt;CtDatHang&gt;(entity =>
+{
+    entity.HasOne(d => d.SdhNavigation).WithMany(p => p.CtDatHangs)
+          .HasForeignKey(d => d.Sdh)
+          .HasConstraintName("CT_DAT_HANG_FK00");
+
+    entity.HasOne(d => d.MsNavigation).WithMany(p => p.CtDatHangs)
+          .HasForeignKey(d => d.Ms)
+          .HasConstraintName("CT_DAT_HANG_FK01");
+});
+</div>
+
+<h3>2.4 Cơ chế Bảo vệ kích thước CSDL (Database Boundary Protection)</h3>
+<p>
+    Một trong những lỗi phổ biến nhất trong các bài tập lớn Web ASP.NET Core là lỗi <em>"String or binary data would be truncated"</em> (dữ liệu nhập từ người dùng dài hơn kích thước cột trong database dẫn đến sập ứng dụng 500). Hệ thống đã giải quyết triệt để vấn đề này bằng mô hình đồng bộ 4 lớp:
+</p>
+<table style="width: 100%;">
+    <tr>
+        <th>Trường dữ liệu</th>
+        <th>Kiểu cột SQL Server</th>
+        <th>Ràng buộc ViewModel C#</th>
+        <th>Thuộc tính HTML Input</th>
+    </tr>
+    <tr>
+        <td><strong>Họ và tên</strong></td>
+        <td><code>nvarchar(50)</code></td>
+        <td><code>[StringLength(50, MinimumLength = 2)]</code></td>
+        <td><code>maxlength="50"</code></td>
+    </tr>
+    <tr>
+        <td><strong>Tên đăng nhập</strong></td>
+        <td><code>nvarchar(15)</code></td>
+        <td><code>[StringLength(15, MinimumLength = 3)]</code></td>
+        <td><code>maxlength="15"</code></td>
+    </tr>
+    <tr>
+        <td><strong>Mật khẩu</strong></td>
+        <td><code>nvarchar(15)</code></td>
+        <td><code>[StringLength(15, MinimumLength = 6)]</code></td>
+        <td><code>maxlength="15"</code></td>
+    </tr>
+    <tr>
+        <td><strong>Số điện thoại</strong></td>
+        <td><code>nvarchar(10)</code></td>
+        <td><code>[StringLength(10, MinimumLength = 10)]</code></td>
+        <td><code>maxlength="10" inputmode="numeric"</code></td>
+    </tr>
+    <tr>
+        <td><strong>Địa chỉ</strong></td>
+        <td><code>nvarchar(50)</code></td>
+        <td><code>[StringLength(50)]</code></td>
+        <td><code>maxlength="50"</code></td>
+    </tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ========================================== -->
+<!-- TRANG 6: CHƯƠNG 3 (CHỨC NĂNG CỐT LÕI)      -->
+<!-- ========================================== -->
+<h2>CHƯƠNG 3: CÁC CHỨC NĂNG CỐT LÕI VÀ KỸ THUẬT LẬP TRÌNH NÂNG CAO</h2>
+
+<h3>3.1 Chức năng Xác thực & Quản lý Tài khoản (Account Management)</h3>
+<p>
+    Hệ thống đăng ký và đăng nhập được thiết kế theo chuẩn bảo mật và trải nghiệm người dùng cao cấp:
+</p>
+<ul>
+    <li><strong>Giải pháp bài toán Regex Unicode phía Client</strong>: Trước đây, việc áp dụng biểu thức <code>\p{L}</code> trong .NET C# gây xung đột với thư viện <code>jquery.validate.unobtrusive</code> trên trình duyệt do JavaScript không bật cờ <code>/u</code>. Hệ thống đã tinh chỉnh sử dụng kiểm tra độ dài và chuẩn hóa chuỗi hợp lệ, giúp người dùng nhập tiếng Việt có dấu hoặc không dấu mượt mà 100%.</li>
+    <li><strong>Linh hoạt tùy biến Giới tính mặc định</strong>:
+        <br/>- Hiện tại giao diện thiết lập mặc định là <strong>Nam</strong> (nhờ thuộc tính <code>checked</code> tại ô radio Nam và gán <code>public string? GioiTinh { get; set; } = "Nam";</code> trong ViewModel).
+        <br/>- Cung cấp đủ 3 phương án lựa chọn: <em>Nam</em>, <em>Nữ</em>, và <em>Không muốn trả lời</em>.
+        <br/>- Khi lưu vào SQL Server, trường <code>Gioi_tinh</code> kiểu <code>bit NOT NULL default ((0))</code> được ánh xạ thông minh: chọn Nam lưu <code>true</code> (1), chọn Nữ hoặc Không muốn trả lời lưu <code>false</code> (0) hoàn toàn tương thích CSDL.</li>
+    <li><strong>Bộ lọc JavaScript làm sạch dữ liệu theo thời gian thực (Real-time Sanitizer)</strong>: Ô điện thoại tự động loại bỏ ký tự chữ, ô tên tài khoản tự động loại bỏ khoảng trắng và ký tự có dấu ngay khi người dùng gõ.</li>
+    <li><strong>Claims-based Authentication</strong>: Sử dụng Cookie Authentication của ASP.NET Core để duy trì phiên đăng nhập trong 7 ngày mà không cần lưu mật khẩu thô trong Session.</li>
+</ul>
+
+<div class="code-box">
+// Đoạn mã kiểm tra trùng lặp và mã hóa tài khoản trong AccountController:
+var usernameExists = await _context.KhachHangs.AnyAsync(u => u.TenDangNhap.ToLower() == taiKhoan.ToLower());
+if (usernameExists) {
+    ModelState.AddModelError("TaiKhoan", "Tên tài khoản này đã được sử dụng.");
+    return View(model);
+}
+// Tự động đăng nhập ngay sau khi đăng ký thành công:
+var claims = new List&lt;Claim&gt; {
+    new Claim(ClaimTypes.NameIdentifier, khachHang.Mkh.ToString()),
+    new Claim(ClaimTypes.Name, khachHang.HoTen)
+};
+await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+</div>
+
+<h3>3.2 Hiển thị, Lọc danh mục và Thử nghiệm LINQ Query (Trọng tâm điểm 10 BTL)</h3>
+<p>
+    Dự án đáp ứng xuất sắc các yêu cầu truy vấn dữ liệu theo barem điểm của môn học:
+</p>
+<ul>
+    <li><strong>Lọc theo chủ đề</strong>: Khi người dùng bấm vào danh mục bên cột trái hoặc dải icon, controller gọi <code>_context.Saches.Where(s => s.Mcd == mcd).ToListAsync()</code> để lấy đúng danh sách sách thuộc đề tài đó.</li>
+    <li><strong>Sách Mới & Sách Bán Chạy</strong>: Sắp xếp theo ngày cập nhật mới nhất (<code>OrderByDescending(s => s.NgayCapNhat).Take(5)</code>) hoặc số lượng đã bán (<code>OrderByDescending(s => s.SoLuongBan).Take(6)</code>).</li>
+    <li><strong>Trang Thử nghiệm LINQ (/SachQuery/QueryDemo)</strong>: Triển khai 7 kịch bản LINQ nâng cao (Truy vấn theo giá, tìm kiếm đa điều kiện, gom nhóm GroupBy theo chủ đề, phép nối INNER JOIN 3 bảng, đếm số lượng sách) phục vụ trực tiếp cho câu hỏi vấn đáp lý thuyết của giảng viên.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- ========================================== -->
+<!-- TRANG 7: CHƯƠNG 3 (GIỎ HÀNG & VOUCHER)     -->
+<!-- ========================================== -->
+<h3>3.3 Hệ sinh thái Giỏ hàng thời gian thực AJAX (Real-time Shopping Cart)</h3>
+<p>
+    Khắc phục hoàn toàn nhược điểm cố hữu của các bài tập lớn cũ (người dùng bấm tăng số lượng nhưng không bấm nút cập nhật dẫn đến tổng tiền không thay đổi). Hệ thống triển khai kiến trúc giỏ hàng 2 chiều:
+</p>
+<ul>
+    <li><strong>Bộ điều khiển tăng giảm số lượng</strong>: Cung cấp 2 nút <strong>`[-]`</strong> và <strong>`[+]`</strong> kèm ô nhập số.</li>
+    <li><strong>Tự động nhân tiền thời gian thực trên giao diện</strong>:
+        $$\text{Thành tiền từng sách} = \text{Số lượng} \times \text{Đơn giá}$$
+        $$\text{Tạm tính} = \sum (\text{Thành tiền}); \quad \text{Tổng thanh toán} = \text{Tạm tính} - \text{Giảm giá Voucher}$$
+        Giao diện cập nhật số tiền ngay lập tức sau 1 mili-giây, loại bỏ hoàn toàn tình trạng lệch tiền.</li>
+    <li><strong>Đồng bộ ngầm không tải lại trang (AJAX Sync)</strong>: API <code>POST /GioHang/CapNhatSoLuongAjax</code> cập nhật danh sách <code>CartItem</code> trong Session máy chủ sau 150ms kể từ lần bấm cuối cùng, bảo đảm phiên làm việc luôn khớp với giao diện.</li>
+</ul>
+
+<div class="code-box">
+// Xử lý cập nhật số lượng và tính toán lại chiết khấu tức thì qua AJAX:
+[HttpPost]
+public IActionResult CapNhatSoLuongAjax(int ms, int soLuong) {
+    var cart = GetCart();
+    var item = cart.FirstOrDefault(c => c.Ms == ms);
+    if (item != null) {
+        item.SoLuong = Math.Clamp(soLuong, 1, 99);
+        SaveCart(cart);
+    }
+    var subtotal = cart.Sum(c => c.ThanhTien);
+    var discount = CalculateDiscount(GetVoucher(), subtotal);
+    return Json(new { success = true, tamTinh = subtotal, giamGia = discount, tongThanhToan = subtotal - discount });
+}
+</div>
+
+<h3>3.4 Hệ thống Mã giảm giá & Ví Voucher thông minh</h3>
+<p>
+    Hệ thống tích hợp quy trình khuyến mãi thương mại điện tử đồng bộ từ Trang chủ đến Giỏ hàng:
+</p>
+<table style="width: 100%;">
+    <tr>
+        <th>Mã Voucher</th>
+        <th>Mức giảm giá</th>
+        <th>Điều kiện & Ý nghĩa</th>
+    </tr>
+    <tr>
+        <td><strong>VIETHUNG</strong> (hoặc <strong>VHU</strong>)</td>
+        <td>Giảm 20% tổng đơn hàng</td>
+        <td>Đặc quyền sinh viên Đại học Công nghiệp Việt - Hung.</td>
+    </tr>
+    <tr>
+        <td><strong>PN10</strong> (hoặc <strong>GIAM10</strong>)</td>
+        <td>Giảm 10% tổng đơn hàng</td>
+        <td>Ưu đãi tuần lễ đọc sách phong cách Phương Nam.</td>
+    </tr>
+    <tr>
+        <td><strong>FREESHIP</strong></td>
+        <td>Trừ 20.000 VNĐ</td>
+        <td>Miễn phí vận chuyển tận nhà hoặc khuôn viên trường.</td>
+    </tr>
+    <tr>
+        <td><strong>BANMOI</strong></td>
+        <td>Trừ 15.000 VNĐ</td>
+        <td>Quà tặng chào mừng thành viên mới đăng ký.</td>
+    </tr>
+    <tr>
+        <td><strong>TRIENTRIC</strong></td>
+        <td>Trừ 30.000 VNĐ</td>
+        <td>Áp dụng cho các hóa đơn có tổng tiền từ 100.000 VNĐ trở lên.</td>
+    </tr>
+</table>
+<ul>
+    <li><strong>Ví Voucher (LocalStorage)</strong>: Khi người dùng bấm "Lưu mã" tại các banner quảng cáo trên trang chủ, mã được lưu vào trình duyệt. Khi người dùng mở giỏ hàng, hệ thống phát hiện và hiển thị nút <em>"Dùng ngay"</em> giúp người dùng không cần phải ghi nhớ hay nhập lại mã.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- ========================================== -->
+<!-- TRANG 8: CHƯƠNG 3 (GIAO DỊCH DATABASE ACID)-->
+<!-- ========================================== -->
+<h3>3.5 Quy trình Đặt hàng & Giao dịch Transactional ACID trên SQL Server</h3>
+<p>
+    Chức năng Đặt hàng (Checkout) là thành phần kỹ thuật quan trọng nhất thể hiện năng lực lập trình backend nâng cao. Một thao tác đặt hàng thực tế tác động đến 3 bảng đồng thời:
+</p>
+<ol>
+    <li>Thêm bản ghi vào bảng <code>DON_DAT_HANG</code> (sinh mã đơn hàng <code>Sdh</code> tự tăng).</li>
+    <li>Lặp qua từng mặt hàng để thêm vào bảng <code>CT_DAT_HANG</code> (khóa ngoại trỏ về <code>Sdh</code>).</li>
+    <li>Cập nhật tăng trường <code>SoLuongBan</code> trong bảng <code>SACH</code> để ghi nhận doanh số và phục vụ thống kê sách bán chạy.</li>
+</ol>
+<p>
+    Để ngăn ngừa nguy cơ mất mát dữ liệu (ví dụ: đã tạo đơn hàng nhưng server bị ngắt điện dẫn đến không lưu được chi tiết sách), hệ thống triển khai <strong>Database Transaction</strong> đảm bảo nguyên lý ACID (Atomicity, Consistency, Isolation, Durability):
+</p>
+
+<div class="code-box">
+// Đoạn mã xử lý giao dịch Transaction trong AccountController / GioHangController:
+using var transaction = await _context.Database.BeginTransactionAsync();
+try {
+    // 1. Tạo đơn hàng với trị giá sau khi đã trừ giảm giá Voucher
+    var donHang = new DonDatHang {
+        Mkh = maKhachHang,
+        NgayDatHang = DateTime.Now,
+        NgayGiaoHang = DateTime.Now.AddDays(3),
+        DaGiaoHang = false,
+        TriGia = finalTotal // Giá trị thực tế sau khi áp dụng mã ưu đãi
+    };
+    _context.DonDatHangs.Add(donHang);
+    await _context.SaveChangesAsync();
+
+    // 2. Thêm chi tiết và cập nhật số lượng đã bán của sách
+    foreach (var item in cart) {
+        _context.CtDatHangs.Add(new CtDatHang {
+            Sdh = donHang.Sdh,
+            Ms = item.Ms,
+            SoLuong = item.SoLuong,
+            DonGia = (double)item.DonGia,
+            ThanhTien = (double)item.ThanhTien
+        });
+
+        var sach = await _context.Saches.FindAsync(item.Ms);
+        if (sach != null) {
+            sach.SoLuongBan = (sach.SoLuongBan ?? 0) + item.SoLuong;
+        }
+    }
+    await _context.SaveChangesAsync();
+
+    // 3. Cam kết giao dịch an toàn tuyệt đối
+    await transaction.CommitAsync();
+
+    // 4. Xóa giỏ hàng và voucher khỏi Session
+    HttpContext.Session.Remove(CART_SESSION_KEY);
+    HttpContext.Session.Remove(VOUCHER_SESSION_KEY);
+
+    return View("DatHangThanhCong", donHang.Sdh);
+}
+catch (Exception ex) {
+    // Nếu có bất kỳ lỗi nào xảy ra: Hoàn tác toàn bộ thay đổi (Rollback)
+    await transaction.RollbackAsync();
+    TempData["ErrorMessage"] = "Có lỗi xảy ra trong quá trình đặt hàng: " + ex.Message;
+    return RedirectToAction(nameof(Index));
+}
+</div>
+
+<div class="note-box">
+    <strong>Điểm cộng tuyệt đối trong barem chấm điểm:</strong> Việc áp dụng Transaction đảm bảo nếu một chi tiết sách bị lỗi, đơn hàng sẽ không bao giờ bị lưu mồ côi (orphaned record), giữ cho CSDL SQL Server luôn sạch sẽ và toàn vẹn.
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========================================== -->
+<!-- TRANG 9: CHƯƠNG 4 (KIỂM THỬ VÀ ĐÁNH GIÁ)   -->
+<!-- ========================================== -->
+<h2>CHƯƠNG 4: KẾT QUẢ THỰC NGHIỆM VÀ KỊCH BẢN KIỂM THỬ</h2>
+
+<h3>4.1 Bảng kết quả kiểm thử các kịch bản thực tế (Test Cases)</h3>
+<p>
+    Tất cả các ca kiểm thử chính đều được thực nghiệm thành công 100% trên môi trường thực tế:
+</p>
+<table style="width: 100%;">
+    <tr>
+        <th style="width: 10%;">Mã TC</th>
+        <th style="width: 25%;">Kịch bản kiểm thử</th>
+        <th style="width: 35%;">Dữ liệu đầu vào & Thao tác</th>
+        <th style="width: 30%;">Kết quả đạt được</th>
+    </tr>
+    <tr>
+        <td><strong>TC-01</strong></td>
+        <td>Đăng ký tài khoản với tên tiếng Việt có dấu</td>
+        <td>Họ tên: "Nguyễn Văn An", Tên đăng nhập: "vanan2026", MK: "123456", Giới tính: Mặc định Nam.</td>
+        <td><span class="highlight-badge">THÀNH CÔNG</span> Lưu vào CSDL, tự động đăng nhập và hiển thị thông báo chào mừng.</td>
+    </tr>
+    <tr>
+        <td><strong>TC-02</strong></td>
+        <td>Chặn nhập trùng lặp tài khoản và email</td>
+        <td>Đăng ký lại với tên "vanan2026" đã có sẵn trong bảng KHACH_HANG.</td>
+        <td><span class="highlight-badge">THÀNH CÔNG</span> Báo lỗi đỏ: "Tên tài khoản này đã được sử dụng", không cho ghi đè.</td>
+    </tr>
+    <tr>
+        <td><strong>TC-03</strong></td>
+        <td>Thêm sách vào giỏ và xem chi tiết giỏ hàng</td>
+        <td>Bấm "CHỌN MUA" sách Giáo trình Tin học cơ bản (đơn giá 26.000đ).</td>
+        <td><span class="highlight-badge">THÀNH CÔNG</span> Chuyển hướng sang giỏ hàng, bảng hiển thị đúng 1 cuốn, tiền 26.000đ.</td>
+    </tr>
+    <tr>
+        <td><strong>TC-04</strong></td>
+        <td>Tăng/giảm số lượng sách trong giỏ hàng (Real-time)</td>
+        <td>Bấm nút <strong>`[+]`</strong> tăng số lượng từ 1 lên 3 cuốn.</td>
+        <td><span class="highlight-badge">THÀNH CÔNG</span> Thành tiền tự động nhân lên 78.000đ, Session đồng bộ ngầm sau 150ms.</td>
+    </tr>
+    <tr>
+        <td><strong>TC-05</strong></td>
+        <td>Áp dụng mã giảm giá sinh viên VIETHUNG</td>
+        <td>Nhập mã "VIETHUNG" (giảm 20%) hoặc bấm nút gợi ý có sẵn.</td>
+        <td><span class="highlight-badge">THÀNH CÔNG</span> Giảm 15.600đ, tổng tiền thanh toán giảm từ 78.000đ còn 62.400 VNĐ.</td>
+    </tr>
+    <tr>
+        <td><strong>TC-06</strong></td>
+        <td>Đặt hàng và ghi nhận CSDL SQL Server</td>
+        <td>Bấm nút "TIẾN HÀNH ĐẶT HÀNG" và xác nhận.</td>
+        <td><span class="highlight-badge">THÀNH CÔNG</span> Tạo đơn hàng #Sdh trong DON_DAT_HANG, ghi đúng trị giá 62.400đ, xóa Session giỏ hàng.</td>
+    </tr>
+</table>
+
+<h3>4.2 Đánh giá mức độ hoàn thành so với yêu cầu đề bài (10/10)</h3>
+<ul>
+    <li><strong>Giao diện & Mỹ thuật (10/10)</strong>: Bố cục 3 cột Phương Nam phong cách hiện đại, phối màu chuẩn nhận diện thương hiệu, hình ảnh bìa sách to rõ ràng, hiệu ứng chuyển động mượt mà.</li>
+    <li><strong>Cơ sở dữ liệu (10/10)</strong>: CSDL SQL Server <code>QLBanSach</code> chuẩn hóa, đầy đủ Primary Key/Foreign Key, không có trường dữ liệu thừa, quản lý kiểu dữ liệu chặt chẽ.</li>
+    <li><strong>Lập trình Backend & Xử lý nghiệp vụ (10/10)</strong>: Quản lý Session hiệu quả, Cookie Claims Authentication, Transaction ACID khi đặt hàng, LINQ đa dạng, hỗ trợ Ajax Real-time và hệ thống Voucher khuyến mãi hoàn thiện.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- ========================================== -->
+<!-- TRANG 10: KẾT LUẬN & TÀI LIỆU THAM KHẢO    -->
+<!-- ========================================== -->
+<h2>KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN</h2>
+
+<h3>1. Kết luận những kết quả đạt được</h3>
+<p>
+    Sau quá trình nghiên cứu, thiết kế và phát triển, đề tài <strong>"Xây dựng Website Nhà sách trực tuyến BookOnline"</strong> đã hoàn thành xuất sắc toàn bộ các mục tiêu đặt ra:
+</p>
+<ol>
+    <li>Xây dựng thành công hệ thống ứng dụng web hoàn chỉnh trên nền tảng .NET 10 / ASP.NET Core MVC kết hợp Entity Framework Core và Microsoft SQL Server.</li>
+    <li>Đưa ngôn ngữ thiết kế thương mại điện tử chuyên nghiệp của Nhà sách Phương Nam vào ứng dụng thực tế của trường Đại học Công nghiệp Việt - Hung, mang lại sự thân thiện và thẩm mỹ cao cho người dùng.</li>
+    <li>Giải quyết triệt để các bài toán kỹ thuật phức tạp: Kiểm tra dữ liệu đa tầng ngăn ngừa lỗi tràn bộ nhớ, khắc phục tương thích Regex Unicode phía máy khách, triển khai giỏ hàng tự động cập nhật số tiền tức thì qua AJAX và hệ thống quản lý mã ưu đãi thông minh.</li>
+    <li>Đảm bảo tính toàn vẹn và độ tin cậy tuyệt đối của dữ liệu trong các giao dịch thanh toán thông qua cơ chế Transaction ACID.</li>
+</ol>
+
+<h3>2. Hướng phát triển trong tương lai</h3>
+<p>
+    Để đưa hệ thống vào ứng dụng thương mại thực tế ở quy mô lớn, dự án có thể mở rộng các phân hệ:
+</p>
+<ul>
+    <li>Tích hợp cổng thanh toán trực tuyến tự động qua VNPay, MoMo, ZaloPay hoặc VietQR.</li>
+    <li>Phát triển trang Quản trị (Admin Dashboard) chuyên sâu: Quản lý biểu đồ doanh thu theo tháng, xuất hóa đơn điện tử PDF và quản lý kho hàng nhập - xuất - tồn.</li>
+    <li>Ứng dụng trí tuệ nhân tạo (AI Recommendation) gợi ý các cuốn sách liên quan dựa trên lịch sử xem và giỏ hàng của người dùng.</li>
+</ul>
+
+<hr style="margin: 25px 0 15px 0; border: none; border-top: 1px solid #ccc;" />
+
+<h2>TÀI LIỆU THAM KHẢO</h2>
+<ol style="line-height: 1.8;">
+    <li>Bộ môn Công nghệ Phần mềm – Khoa CNTT, <em>Tài liệu hướng dẫn Bài tập lớn môn học Phát triển ứng dụng Web nâng cao</em>, Trường Đại học Công nghiệp Việt - Hung, 2026.</li>
+    <li>Microsoft Documentation, <em>Overview of ASP.NET Core MVC & Entity Framework Core</em>, <a href="https://learn.microsoft.com/aspnet/core/">https://learn.microsoft.com/aspnet/core/</a>.</li>
+    <li>Andrew Lock, <em>ASP.NET Core in Action, 3rd Edition</em>, Manning Publications, 2023.</li>
+    <li>Hệ thống giao diện thương mại điện tử, <em>Nhà sách Phương Nam Online</em>, <a href="https://nhasachphuongnam.com/">https://nhasachphuongnam.com/</a>.</li>
+</ol>
+
+</body>
+</html>

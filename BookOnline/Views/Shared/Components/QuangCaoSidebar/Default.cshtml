@@ -1,0 +1,32 @@
+@model IEnumerable<BookOnline.Models.QuangCao>
+
+<div class="card shadow-sm border-0 mb-3 bg-white" style="border-radius: 10px; border: 1px solid var(--pn-border);">
+    <div class="card-header bg-white text-primary fw-bold small text-uppercase py-2 d-flex align-items-center justify-content-between border-bottom">
+        <span><i class="bi bi-patch-check-fill text-warning me-1"></i> Đối tác đồng hành</span>
+        <span class="badge bg-light text-muted border">Quảng cáo</span>
+    </div>
+    <div class="card-body p-2 d-flex flex-column gap-2">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var ad in Model)
+            {
+                var adImg = string.IsNullOrWhiteSpace(ad.HinhMinhHoa) ? "/images/Upload/QC_BEN.png" : $"/images/Upload/{ad.HinhMinhHoa}";
+                if (!adImg.EndsWith(".png", StringComparison.OrdinalIgnoreCase) && 
+                    !adImg.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) && 
+                    !adImg.EndsWith(".gif", StringComparison.OrdinalIgnoreCase))
+                {
+                    adImg += ".png";
+                }
+                var link = string.IsNullOrWhiteSpace(ad.Href) ? "#" : ad.Href;
+
+                <a href="@link" target="_blank" rel="noopener noreferrer" class="d-block text-center p-2 rounded border bg-light text-decoration-none shadow-sm" title="@ad.TenCty">
+                    <img src="@adImg" alt="@ad.TenCty" class="img-fluid rounded" style="max-height: 80px; width: 100%; object-fit: contain;" onerror="this.src='/images/Upload/QC_BEN.png'" />
+                </a>
+            }
+        }
+        else
+        {
+            <div class="text-center p-2 text-muted small">Không có quảng cáo</div>
+        }
+    </div>
+</div>

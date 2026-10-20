@@ -1,0 +1,75 @@
+@model List<Dictionary<string, object>>
+@{
+    ViewData["Title"] = "Thử nghiệm LINQ Query - QLBanSach";
+}
+
+<div class="card shadow-sm border-0 mb-4 bg-white p-3">
+    <div class="border-bottom pb-2 mb-3">
+        <h4 class="fw-bold text-success mb-1">
+            <i class="bi bi-terminal-fill me-2"></i> TRUY VẤN CSDL QLBANSACH (LINQ)
+        </h4>
+        <p class="text-muted small mb-0">Bài thực hành số 3: Lập trình LINQ cơ bản và thử nghiệm truy vấn</p>
+    </div>
+
+    <!-- Dropdown chọn câu lệnh truy vấn -->
+    <form method="get" asp-action="QueryDemo" id="filterForm" class="mb-4">
+        <div class="row align-items-center">
+            <div class="col-md-9 mb-2 mb-md-0">
+                <label class="form-label fw-semibold small text-secondary">Lọc theo danh mục câu lệnh:</label>
+                <select name="id" asp-items="ViewBag.Queries" class="form-select border-success" onchange="this.form.submit()">
+                    <option value="">-- Chọn câu lệnh truy vấn cần thử nghiệm --</option>
+                </select>
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <button type="submit" class="btn btn-success w-100 fw-semibold">
+                    <i class="bi bi-play-fill me-1"></i> Thực thi
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Hiển thị kết quả truy vấn -->
+    @if (Model != null && Model.Any())
+    {
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge bg-primary fs-6">Kết quả: @Model.Count bản ghi</span>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        @foreach (var key in Model.First().Keys)
+                        {
+                            <th>@key</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in Model)
+                    {
+                        <tr>
+                            @foreach (var key in row.Keys)
+                            {
+                                <td>@row[key]</td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else if (Model != null)
+    {
+        <div class="alert alert-warning text-center py-3">
+            Không có bản ghi nào thỏa mãn điều kiện truy vấn.
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-light text-center border py-4 text-muted">
+            <i class="bi bi-arrow-up-circle fs-3 d-block mb-2 text-success"></i>
+            Vui lòng chọn một câu lệnh từ dropdown phía trên để xem kết quả truy vấn LINQ.
+        </div>
+    }
+</div>

@@ -1,0 +1,235 @@
+@model BookOnline.ViewModels.HomeViewModel
+@{
+    ViewData["Title"] = "Trang chủ - Nhà sách trực tuyến";
+}
+
+<!-- 1. HERO BANNER CAROUSEL PHONG CÁCH NHÀ SÁCH PHƯƠNG NAM -->
+<div id="pnHeroCarousel" class="carousel slide carousel-fade pn-hero-carousel" data-bs-ride="carousel" data-bs-interval="4500">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#pnHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#pnHeroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#pnHeroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+            <div class="pn-hero-slide-1">
+                <div style="max-width: 64%;">
+                    <span class="pn-hero-tag"><i class="bi bi-gift-fill me-1"></i> Chào Kỳ Học Mới</span>
+                    <h3 class="pn-hero-title">HỘI SÁCH ĐHCN VIỆT - HUNG</h3>
+                    <p class="pn-hero-desc d-none d-sm-block">Ưu đãi lên đến 50% giáo trình, tài liệu tham khảo chính hãng cho sinh viên.</p>
+                    <a asp-controller="Sach" asp-action="SachBanChay" class="btn btn-warning btn-sm rounded-pill px-3 py-1 fw-bold text-dark mt-2">
+                        Khám phá ngay <i class="bi bi-arrow-right-short"></i>
+                    </a>
+                </div>
+                <div class="pn-hero-badge-float d-none d-md-block">
+                    <span class="fs-2 fw-black text-warning d-block" style="line-height: 1;">-50%</span>
+                    <span class="small text-white text-uppercase fw-bold" style="font-size: 0.72rem;">Giáo Trình</span>
+                </div>
+            </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+            <div class="pn-hero-slide-2">
+                <div style="max-width: 64%;">
+                    <span class="pn-hero-tag" style="background: #ffffff; color: #b71c1c;"><i class="bi bi-fire me-1"></i> Siêu Bán Chạy</span>
+                    <h3 class="pn-hero-title">TUẦN LỄ SÁCH CÔNG NGHỆ</h3>
+                    <p class="pn-hero-desc d-none d-sm-block">Trọn bộ C#, ASP.NET Core, Lập Trình Web & Cơ Sở Dữ Liệu SQL Server.</p>
+                    <a asp-controller="Sach" asp-action="SachMoi" class="btn btn-light btn-sm rounded-pill px-3 py-1 fw-bold text-danger mt-2">
+                        Xem sách mới <i class="bi bi-arrow-right-short"></i>
+                    </a>
+                </div>
+                <div class="pn-hero-badge-float d-none d-md-block">
+                    <span class="fs-2 fw-black text-white d-block" style="line-height: 1;">HOT</span>
+                    <span class="small text-warning text-uppercase fw-bold" style="font-size: 0.72rem;">Công Nghệ</span>
+                </div>
+            </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+            <div class="pn-hero-slide-3">
+                <div style="max-width: 64%;">
+                    <span class="pn-hero-tag" style="background: #e0f2f1; color: #004d40;"><i class="bi bi-truck me-1"></i> Độc Quyền</span>
+                    <h3 class="pn-hero-title">TRI THỨC & KHỞI NGHIỆP</h3>
+                    <p class="pn-hero-desc d-none d-sm-block">Miễn phí giao hàng nội thành & toàn bộ khuôn viên trường ĐHCN Việt - Hung.</p>
+                    <a asp-controller="Sach" asp-action="TheoChuDe" class="btn btn-warning btn-sm rounded-pill px-3 py-1 fw-bold text-dark mt-2">
+                        Khám phá ngay <i class="bi bi-arrow-right-short"></i>
+                    </a>
+                </div>
+                <div class="pn-hero-badge-float d-none d-md-block">
+                    <span class="fs-2 fw-black text-warning d-block" style="line-height: 1;">0 Đ</span>
+                    <span class="small text-white text-uppercase fw-bold" style="font-size: 0.72rem;">Freeship</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Nút mũi tên điều hướng sát cạnh không bị đè vào chữ hoặc ô vuông -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#pnHeroCarousel" data-bs-slide="prev" title="Banner trước">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Trước</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#pnHeroCarousel" data-bs-slide="next" title="Banner sau">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Sau</span>
+    </button>
+</div>
+
+<!-- 2. DẢI ICON DANH MỤC TRUY CẬP NHANH (QUICK CATEGORY CIRCLES) -->
+<div class="pn-quick-nav">
+    <a asp-controller="Home" asp-action="Index" class="pn-quick-item" title="Xem tất cả sách">
+        <div class="pn-quick-icon pn-icon-all">
+            <i class="bi bi-grid-fill"></i>
+        </div>
+        <span>Tất Cả</span>
+    </a>
+    <a asp-controller="Sach" asp-action="TheoChuDe" asp-route-mcd="5" class="pn-quick-item" title="Công nghệ thông tin (32 cuốn)">
+        <div class="pn-quick-icon pn-icon-tech">
+            <i class="bi bi-laptop"></i>
+        </div>
+        <span>Tin Học</span>
+    </a>
+    <a asp-controller="Sach" asp-action="TheoChuDe" asp-route-mcd="9" class="pn-quick-item" title="Kinh tế (5 cuốn)">
+        <div class="pn-quick-icon pn-icon-econ">
+            <i class="bi bi-graph-up-arrow"></i>
+        </div>
+        <span>Kinh Tế</span>
+    </a>
+    <a asp-controller="Sach" asp-action="TheoChuDe" asp-route-mcd="37" class="pn-quick-item" title="Kế toán (4 cuốn)">
+        <div class="pn-quick-icon pn-icon-code">
+            <i class="bi bi-calculator-fill"></i>
+        </div>
+        <span>Kế Toán</span>
+    </a>
+    <a asp-controller="Sach" asp-action="TheoChuDe" asp-route-mcd="4" class="pn-quick-item" title="Sách ngoại ngữ">
+        <div class="pn-quick-icon pn-icon-foreign">
+            <i class="bi bi-translate"></i>
+        </div>
+        <span>Ngoại Ngữ</span>
+    </a>
+    <a asp-controller="Sach" asp-action="SachMoi" class="pn-quick-item" title="Sách mới phát hành">
+        <div class="pn-quick-icon pn-icon-stars">
+            <i class="bi bi-stars"></i>
+        </div>
+        <span>Sách Mới</span>
+    </a>
+    <a asp-controller="Sach" asp-action="SachBanChay" class="pn-quick-item" title="Top sách bán chạy nhất">
+        <div class="pn-quick-icon pn-icon-trophy">
+            <i class="bi bi-trophy-fill"></i>
+        </div>
+        <span>Bán Chạy</span>
+    </a>
+</div>
+
+
+<!-- 4. SÁCH MỚI (CHUẨN 100% THEO HÌNH VẼ CỘT GIỮA ĐỀ BÀI CÂU 1) -->
+<div class="pn-section-card shadow-sm mb-3">
+    <div class="pn-section-header d-flex flex-wrap align-items-center justify-content-between gap-2">
+        <h5 class="pn-section-title mb-0 d-flex align-items-center">
+            <img src="/images/tittle_sachmoi.gif" alt="Sách mới" style="height: 22px; max-width: 110px;" class="me-2 d-none d-sm-inline" onerror="this.style.display='none'" />
+            <span><i class="bi bi-stars text-danger me-1"></i> SÁCH MỚI</span>
+        </h5>
+        <a asp-controller="Sach" asp-action="SachMoi" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1 fw-semibold" style="font-size: 0.8rem;">
+            Xem tất cả sách mới <i class="bi bi-chevron-right small"></i>
+        </a>
+    </div>
+    
+    <div class="p-2">
+        <ul class="pn-sachmoi-list list-unstyled mb-0">
+            @if (Model.SachMoi != null && Model.SachMoi.Any())
+            {
+                var rank = 1;
+                @foreach (var s in Model.SachMoi)
+                {
+                    var rankClass = rank == 1 ? "pn-rank-1" : rank == 2 ? "pn-rank-2" : rank == 3 ? "pn-rank-3" : "pn-rank-other";
+                    <li class="pn-sachmoi-item d-flex align-items-center py-2 px-2 border-bottom @(rank == Model.SachMoi.Count ? "border-bottom-0" : "")">
+                        <span class="pn-rank-badge @rankClass me-2">@rank</span>
+                        <img src="/images/muitendo.gif" alt="bullet" class="me-2" style="height: 10px;" onerror="this.style.display='none'" />
+                        <a asp-controller="Sach" asp-action="Details" asp-route-id="@s.Ms" class="text-truncate flex-grow-1 text-decoration-none fw-semibold text-dark hover-primary" title="@s.TenSach">
+                            @s.TenSach
+                        </a>
+                        @if (!string.IsNullOrWhiteSpace(s.TenTacGia))
+                        {
+                            <span class="text-muted small ms-2 d-none d-md-inline text-truncate" style="max-width: 150px;">
+                                (@s.TenTacGia)
+                            </span>
+                        }
+                        <span class="text-danger fw-bold small ms-2 text-nowrap">
+                            @((s.DonGia ?? 0).ToString("#,##0")) đ
+                        </span>
+                        <a asp-controller="Sach" asp-action="Details" asp-route-id="@s.Ms" class="btn btn-sm btn-outline-danger py-0 px-2 ms-2 rounded-pill d-none d-sm-inline" style="font-size: 0.72rem;">
+                            Chi tiết
+                        </a>
+                    </li>
+                    rank++;
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+<!-- 5. VÙNG QUẢNG CÁO 1 (HIỂN THỊ NGẪU NHIÊN 3 ẢNH QUẢNG CÁO CÙNG LIÊN KẾT TRANG ĐÍCH) -->
+<div class="pn-random-ads mb-3">
+    @if (Model.QuangCaoNgauNhien != null)
+    {
+        @foreach (var ad in Model.QuangCaoNgauNhien)
+        {
+            <div class="pn-ad-item">
+                <a href="@ad.LinkUrl" target="_blank" rel="noopener noreferrer" title="@ad.TenQuangCao">
+                    <img src="@ad.HinhAnh" alt="@ad.TenQuangCao" onerror="this.src='/images/Upload/Sample.jpg'" />
+                </a>
+            </div>
+        }
+    }
+</div>
+
+<!-- 6. VÙNG NỘI DUNG CHÍNH: LƯỚI CARD SÁCH THEO CHỦ ĐỀ / NỔI BẬT (3 SÁCH / HÀNG) -->
+<div class="pn-section-card shadow-sm">
+    <div class="pn-section-header d-flex justify-content-between align-items-center">
+        <h5 class="pn-section-title mb-0">
+            <i class="bi bi-@(string.IsNullOrEmpty(Model.Keyword) ? "book-half" : "search") text-primary"></i>
+            <span>@Model.TenTieuDe</span>
+        </h5>
+        <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-light text-primary border rounded-pill px-3 py-2">@Model.DanhSachSach.Count cuốn sách</span>
+            @if (!string.IsNullOrEmpty(Model.Keyword))
+            {
+                <a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-outline-secondary rounded-pill py-1 px-2" title="Xóa từ khóa tìm kiếm">
+                    <i class="bi bi-x-circle me-1"></i> Bỏ lọc
+                </a>
+            }
+        </div>
+    </div>
+
+    @if (Model.DanhSachSach != null && Model.DanhSachSach.Any())
+    {
+        <div class="pn-product-grid">
+            @foreach (var book in Model.DanhSachSach)
+            {
+                <partial name="_SachCardPartial" model="book" />
+            }
+        </div>
+    }
+    else
+    {
+        @if (!string.IsNullOrEmpty(Model.Keyword))
+        {
+            <div class="alert alert-light text-center py-5 border rounded">
+                <i class="bi bi-search fs-1 text-muted d-block mb-2"></i>
+                <h6 class="text-secondary">Không tìm thấy cuốn sách nào phù hợp với từ khóa "@Model.Keyword".</h6>
+                <p class="text-muted small mb-3">Vui lòng thử tìm với từ khóa khác (Ví dụ: Tin học, Lập trình, Kinh tế, Ngoại ngữ...).</p>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                    <i class="bi bi-arrow-left me-1"></i> Xem tất cả sách
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-light text-center py-5 border rounded">
+                <i class="bi bi-journal-x fs-1 text-muted d-block mb-2"></i>
+                <h6 class="text-secondary">Chưa có đầu sách nào trong danh mục này.</h6>
+                <p class="text-muted small mb-0">Vui lòng chọn danh mục chủ đề khác ở cột bên trái.</p>
+            </div>
+        }
+    }
+</div>
+

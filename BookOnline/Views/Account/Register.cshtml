@@ -1,0 +1,171 @@
+@model BookOnline.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Đăng ký tài khoản";
+}
+
+<div class="row justify-content-center my-4">
+    <div class="col-md-9 col-lg-8">
+        <div class="card shadow-sm border-0 bg-white" style="border-radius: 12px; border: 1px solid var(--pn-border) !important;">
+            <div class="card-header bg-white text-center border-0 pt-4 pb-0">
+                <div class="d-inline-flex align-items-center justify-content-center bg-primary-subtle text-primary rounded-circle mb-2" style="width: 58px; height: 58px;">
+                    <i class="bi bi-person-plus-fill fs-2"></i>
+                </div>
+                <h4 class="fw-bold text-dark mb-1">ĐĂNG KÝ THÀNH VIÊN</h4>
+                <p class="text-muted small mb-0">Tạo tài khoản để trải nghiệm mua sách nhanh chóng và nhận nhiều ưu đãi</p>
+            </div>
+
+            <div class="card-body p-4">
+                <form asp-action="Register" method="post" autocomplete="on">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2 small shadow-none"></div>
+
+                    <div class="row g-3">
+                        <!-- 1. Họ và tên -->
+                        <div class="col-md-6">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label asp-for="HoTen" class="form-label fw-semibold small mb-0">Họ và tên <span class="text-danger">*</span></label>
+                                <span class="text-muted" style="font-size: 0.72rem;">2 - 50 ký tự</span>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light text-muted"><i class="bi bi-person"></i></span>
+                                <input asp-for="HoTen" class="form-control" placeholder="Nguyễn Văn An" maxlength="50" autofocus />
+                            </div>
+                            <span asp-validation-for="HoTen" class="text-danger small"></span>
+                        </div>
+
+                        <!-- 2. Tên tài khoản -->
+                        <div class="col-md-6">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label asp-for="TaiKhoan" class="form-label fw-semibold small mb-0">Tên đăng nhập <span class="text-danger">*</span></label>
+                                <span class="text-muted" style="font-size: 0.72rem;">3 - 15 ký tự (a-z, 0-9)</span>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light text-muted"><i class="bi bi-at"></i></span>
+                                <input asp-for="TaiKhoan" class="form-control" placeholder="vanan2026" maxlength="15" />
+                            </div>
+                            <span asp-validation-for="TaiKhoan" class="text-danger small"></span>
+                        </div>
+
+                        <!-- 3. Mật khẩu -->
+                        <div class="col-md-6">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label asp-for="MatKhau" class="form-label fw-semibold small mb-0">Mật khẩu <span class="text-danger">*</span></label>
+                                <span class="text-muted" style="font-size: 0.72rem;">6 - 15 ký tự</span>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light text-muted"><i class="bi bi-lock"></i></span>
+                                <input asp-for="MatKhau" type="password" id="regPassword" class="form-control border-end-0" placeholder="Nhập mật khẩu..." maxlength="15" />
+                                <button type="button" class="btn btn-outline-secondary border-start-0 btn-toggle-pw" data-target="regPassword" title="Hiện/ẩn mật khẩu">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                            <span asp-validation-for="MatKhau" class="text-danger small"></span>
+                        </div>
+
+                        <!-- 4. Xác nhận mật khẩu -->
+                        <div class="col-md-6">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label asp-for="XacNhanMatKhau" class="form-label fw-semibold small mb-0">Xác nhận mật khẩu <span class="text-danger">*</span></label>
+                                <span class="text-muted" style="font-size: 0.72rem;">Khớp với mật khẩu</span>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light text-muted"><i class="bi bi-shield-check"></i></span>
+                                <input asp-for="XacNhanMatKhau" type="password" id="regConfirmPassword" class="form-control border-end-0" placeholder="Nhập lại mật khẩu..." maxlength="15" />
+                                <button type="button" class="btn btn-outline-secondary border-start-0 btn-toggle-pw" data-target="regConfirmPassword" title="Hiện/ẩn mật khẩu">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                            <span asp-validation-for="XacNhanMatKhau" class="text-danger small"></span>
+                        </div>
+
+                        <!-- 5. Email -->
+                        <div class="col-md-6">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label asp-for="Email" class="form-label fw-semibold small mb-0">Địa chỉ Email <span class="text-danger">*</span></label>
+                                <span class="text-muted" style="font-size: 0.72rem;">Tối đa 50 ký tự</span>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light text-muted"><i class="bi bi-envelope"></i></span>
+                                <input asp-for="Email" type="email" class="form-control" placeholder="vanan@gmail.com" maxlength="50" />
+                            </div>
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+
+                        <!-- 6. Điện thoại -->
+                        <div class="col-md-6">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label asp-for="DienThoai" class="form-label fw-semibold small mb-0">Số điện thoại</label>
+                                <span class="text-muted" style="font-size: 0.72rem;">Đúng 10 chữ số</span>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light text-muted"><i class="bi bi-telephone"></i></span>
+                                <input asp-for="DienThoai" type="tel" class="form-control" placeholder="0983308081" maxlength="10" inputmode="numeric" />
+                            </div>
+                            <span asp-validation-for="DienThoai" class="text-danger small"></span>
+                        </div>
+
+                        <!-- 7. Ngày sinh -->
+                        <div class="col-md-6">
+                            <label asp-for="NgaySinh" class="form-label fw-semibold small mb-1">Ngày sinh</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light text-muted"><i class="bi bi-calendar3"></i></span>
+                                <input asp-for="NgaySinh" type="date" class="form-control" max="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                            </div>
+                            <span asp-validation-for="NgaySinh" class="text-danger small"></span>
+                        </div>
+
+                        <!-- 8. Giới tính -->
+                        <!-- ========================================================================================= -->
+                        <!-- CÁCH ĐỔI MẶC ĐỊNH NAM / NỮ HOẶC THÊM LỰA CHỌN:              -->
+                        <!-- 1. Trạng thái hiện tại: Đang đặt mặc định là 'Nam' bằng thuộc tính 'checked' ở ô Nam.     --
+                        <!--    -> Bước 1: Xóa chữ 'checked' ở ô Nam (dòng 130).                                       -->
+                        <!--    -> Bước 2: Thêm chữ 'checked' vào ô Nữ (dòng 134):                                     -->
+                        <!--       <input ... asp-for="GioiTinh" value="Nữ" id="genderFemale" checked />               -->
+                        <!--    -> Xóa toàn bộ chữ 'checked' ở tất cả các thẻ input radio.                             -->
+                        <!-- ========================================================================================= -->
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold small mb-1">Giới tính</label>
+                            <div class="d-flex align-items-center flex-wrap gap-4 pt-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" asp-for="GioiTinh" value="Nam" id="genderMale" checked />
+                                    <label class="form-check-label fw-semibold" for="genderMale">Nam</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" asp-for="GioiTinh" value="Nữ" id="genderFemale" />
+                                    <label class="form-check-label fw-semibold" for="genderFemale">Nữ</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 9. Địa chỉ -->
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label asp-for="DiaChi" class="form-label fw-semibold small mb-0">Địa chỉ giao hàng nhận sách</label>
+                                <span class="text-muted" style="font-size: 0.72rem;">Tối đa 50 ký tự</span>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light text-muted"><i class="bi bi-geo-alt"></i></span>
+                                <input asp-for="DiaChi" class="form-control" placeholder="Số 16 Xuân Khanh, Sơn Tây, Hà Nội" maxlength="50" />
+                            </div>
+                            <span asp-validation-for="DiaChi" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold shadow-sm rounded-pill mt-4">
+                        <i class="bi bi-check2-circle me-1"></i> HOÀN TẤT ĐĂNG KÝ
+                    </button>
+
+                    <div class="text-center mt-3 pt-3 border-top">
+                        <span class="text-muted small">Đã có tài khoản?</span>
+                        <a asp-action="Login" class="text-decoration-none fw-bold text-danger ms-1">
+                            Đăng nhập ngay <i class="bi bi-arrow-right-short"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

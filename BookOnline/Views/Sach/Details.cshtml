@@ -1,0 +1,95 @@
+@model BookOnline.ViewModels.SachViewModel
+@{
+    ViewData["Title"] = Model.TenSach;
+}
+
+<nav aria-label="breadcrumb" class="mb-3">
+    <ol class="breadcrumb bg-white p-2 rounded shadow-sm">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index" class="text-decoration-none text-primary">Trang chủ</a></li>
+        @if (!string.IsNullOrEmpty(Model.TenChuDe))
+        {
+            <li class="breadcrumb-item"><a asp-controller="Sach" asp-action="TheoChuDe" asp-route-mcd="@Model.Mcd" class="text-decoration-none text-primary">@Model.TenChuDe</a></li>
+        }
+        <li class="breadcrumb-item active text-truncate" aria-current="page">@Model.TenSach</li>
+    </ol>
+</nav>
+
+<div class="card shadow-sm border-0 mb-4 bg-white p-4" style="border-radius: 10px; border: 1px solid var(--pn-border);">
+    <div class="row g-4">
+        <!-- Cột trái: Ảnh bìa sách lớn nổi bật -->
+        <div class="col-md-5 text-center d-flex align-items-center justify-content-center">
+            <div class="p-3 border rounded bg-white shadow-sm d-flex align-items-center justify-content-center w-100" 
+                 style="min-height: 430px; background: radial-gradient(circle, #ffffff 65%, #f4f6f9 100%);">
+                <img src="@Model.ImageUrl" alt="@Model.TenSach" class="rounded shadow-lg pn-detail-book-img" 
+                     style="width: 280px; height: 390px; max-width: 95%; object-fit: fill; border: 1px solid rgba(0,0,0,0.08); transition: transform 0.35s ease;" 
+                     onerror="this.src='/images/Upload/Sample.jpg'" />
+            </div>
+        </div>
+
+        <!-- Cột phải: Thông tin chi tiết -->
+        <div class="col-md-7">
+            <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="badge bg-danger rounded-pill px-3 py-1">Sách chính hãng</span>
+                <div class="text-warning small">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <span class="text-muted ms-1">(5.0 đánh giá)</span>
+                </div>
+            </div>
+
+            <h3 class="fw-bold text-dark mb-3" style="color: var(--pn-blue-dark) !important;">@Model.TenSach</h3>
+
+            <div class="mb-3 py-3 px-3 rounded border" style="background-color: var(--pn-yellow-light); border-color: var(--pn-yellow-border) !important;">
+                <span class="text-secondary fs-6 fw-semibold">Giá niêm yết:</span>
+                <span class="fs-2 fw-bold text-danger ms-2">
+                    @((Model.DonGia ?? 0).ToString("#,##0")) <small class="fs-5">VNĐ</small>
+                </span>
+                <span class="badge bg-danger ms-2">-10% Ưu đãi học tập</span>
+            </div>
+
+            <ul class="list-unstyled mb-4" style="line-height: 2;">
+                <li><strong><i class="bi bi-bookmarks-fill text-primary me-2"></i>Chủ đề / Thể loại:</strong> @(Model.TenChuDe ?? "Đang cập nhật")</li>
+                <li><strong><i class="bi bi-person-fill text-primary me-2"></i>Tác giả:</strong> @Model.TenTacGia</li>
+                <li><strong><i class="bi bi-building text-primary me-2"></i>Nhà xuất bản:</strong> @(Model.TenNXB ?? "Đang cập nhật")</li>
+                <li><strong><i class="bi bi-calendar3 text-primary me-2"></i>Ngày cập nhật:</strong> @(Model.NgayCapNhat?.ToString("dd/MM/yyyy") ?? "Chưa rõ")</li>
+                <li><strong><i class="bi bi-eye-fill text-secondary me-2"></i>Lượt xem:</strong> @(Model.SoLanXem ?? 1)</li>
+                <li><strong><i class="bi bi-bag-check-fill text-success me-2"></i>Đã bán:</strong> @(Model.SoLuongBan ?? 0) cuốn</li>
+            </ul>
+
+            <!-- Form Thêm vào giỏ hàng -->
+            <form asp-controller="GioHang" asp-action="ThemGioHang" method="post" class="mt-4 form-add-to-cart">
+                <input type="hidden" name="ms" value="@Model.Ms" />
+                <div class="d-flex align-items-center gap-3">
+                    <div class="input-group" style="width: 130px;">
+                        <span class="input-group-text bg-light fw-bold">SL</span>
+                        <input type="number" name="soLuong" value="1" min="1" max="99" class="form-control text-center fw-bold" />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg px-4 fw-bold shadow-sm d-flex align-items-center gap-2 btn-pn-buy" style="background-color: var(--pn-blue); border-color: var(--pn-blue);" data-ms="@Model.Ms" data-tensach="@Model.TenSach">
+                        <i class="bi bi-cart-plus-fill fs-5"></i>
+                        <span>THÊM VÀO GIỎ HÀNG</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Mô tả chi tiết sách -->
+    <div class="mt-4 pt-4 border-top">
+        <h5 class="fw-bold text-primary border-bottom pb-2" style="color: var(--pn-blue) !important;">
+            <i class="bi bi-journal-text me-2"></i> MÔ TẢ CHI TIẾT NỘI DUNG CUỐN SÁCH
+        </h5>
+        <div class="p-3 bg-light rounded text-secondary" style="line-height: 1.8;">
+            @if (!string.IsNullOrWhiteSpace(Model.MoTa))
+            {
+                <p style="white-space: pre-line;">@Model.MoTa</p>
+            }
+            else
+            {
+                <p class="fst-italic text-muted">Chưa có thông tin mô tả chi tiết cho ấn phẩm này.</p>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Nhà Sách Phương Nam & ĐHCN Việt - Hung</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/phuongnam-theme.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- 1. THANH THÔNG BÁO ƯU ĐÃI ĐẦU TRANG (PHƯƠNG NAM TOPBAR) -->
+    <div class="top-notice-bar text-center">
+        <i class="bi bi-gift-fill me-1"></i> Chào mừng đến với Nhà sách trực tuyến Book Online - Trường Đại học Công nghiệp Việt - Hung!
+    </div>
+
+    <!-- 2. VÙNG HEADER CHÍNH PHONG CÁCH NHÀ SÁCH PHƯƠNG NAM -->
+    <header class="site-header-pn text-white py-3">
+        <div class="container-fluid px-3 px-xl-4" style="max-width: 1600px;">
+            <div class="row align-items-center g-3">
+                <!-- Logo thương hiệu -->
+                <div class="col-lg-4 col-md-5 col-12 text-center text-md-start">
+                    <a asp-controller="Home" asp-action="Index" class="brand-logo-text d-inline-flex flex-column text-decoration-none">
+                        <span class="fs-4 fw-bold text-white"><i class="bi bi-book-half text-warning me-1"></i> NHÀ SÁCH <span class="brand-sub">VIỆT - HUNG</span></span>
+                        <span class="small text-white-50" style="font-size: 0.75rem; letter-spacing: 1px;">BOOK ONLINE &bull; PHƯƠNG NAM CONCEPT</span>
+                    </a>
+                </div>
+
+                <!-- Thanh tìm kiếm kiểu Pill tròn của Phương Nam -->
+                <div class="col-lg-5 col-md-4 col-12">
+                    <form asp-controller="Home" asp-action="Index" method="get" class="d-flex">
+                        <input type="text" name="keyword" value="@Context.Request.Query["keyword"]" class="form-control search-input-pill shadow-none" placeholder="Tìm kiếm tựa sách, chủ đề, tác giả, NXB..." />
+                        <button type="submit" class="search-btn-pill" title="Tìm kiếm">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Cụm Tài khoản & Giỏ hàng nhanh -->
+                <div class="col-lg-3 col-md-3 col-12 text-center text-md-end">
+                    <div class="d-inline-flex align-items-center gap-3">
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            <div class="dropdown">
+                                <a class="text-white text-decoration-none dropdown-toggle fw-semibold small" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle fs-5 text-warning align-middle me-1"></i> @User.Identity.Name
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end shadow">
+                                    <li><a class="dropdown-item" asp-controller="GioHang" asp-action="Index"><i class="bi bi-bag-check me-2"></i> Giỏ hàng</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                            <button type="submit" class="dropdown-item text-danger"><i class="bi bi-box-arrow-right me-2"></i> Đăng xuất</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="d-flex align-items-center gap-2 small">
+                                <a asp-controller="Account" asp-action="Login" class="text-white text-decoration-none hover-warning">
+                                    <i class="bi bi-person fs-5 align-middle"></i> Đăng nhập
+                                </a>
+                                <span class="text-white-50">|</span>
+                                <a asp-controller="Account" asp-action="Register" class="text-white text-decoration-none hover-warning">
+                                    Đăng ký
+                                </a>
+                            </div>
+                        }
+
+                        @{
+                            var headerCart = Context.Session.GetObjectFromJson<List<CartItem>>("Cart") ?? new List<CartItem>();
+                            var headerCartCount = headerCart.Sum(c => c.SoLuong);
+                        }
+                        <a asp-controller="GioHang" asp-action="Index" class="btn btn-warning btn-sm rounded-pill px-3 fw-bold position-relative text-dark d-inline-flex align-items-center" id="btnHeaderCart" title="Xem giỏ hàng & thanh toán">
+                            <i class="bi bi-cart3 me-1 fs-6"></i>
+                            <span>Giỏ hàng</span>
+                            <span class="badge bg-danger rounded-pill ms-1 header-cart-badge" id="headerCartCount">@headerCartCount</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. THANH MENU NGANG (NAVBAR) -->
+    <nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm p-0">
+        <div class="container-fluid px-3 px-xl-4" style="max-width: 1600px;">
+            <button class="navbar-toggler my-2" type="button" data-bs-toggle="collapse" data-bs-target="#pnNav" aria-controls="pnNav" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="pnNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-primary fw-bold text-uppercase px-3 py-2" asp-controller="Home" asp-action="Index"><i class="bi bi-house-door me-1"></i> Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark fw-semibold text-uppercase px-3 py-2" asp-controller="Sach" asp-action="SachMoi"><i class="bi bi-stars text-danger me-1"></i> Sách mới</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark fw-semibold text-uppercase px-3 py-2" asp-controller="Sach" asp-action="SachBanChay"><i class="bi bi-fire text-danger me-1"></i> Sách bán chạy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark fw-semibold text-uppercase px-3 py-2" asp-controller="Home" asp-action="Privacy"><i class="bi bi-info-circle text-primary me-1"></i> Giới thiệu</a>
+                    </li>
+                </ul>
+                <div class="d-none d-lg-block text-secondary small">
+                    <i class="bi bi-headset text-danger me-1"></i> Hotline: <strong class="text-danger">0983308081</strong>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- THÔNG BÁO FLASH MESSAGE -->
+    <div class="container-fluid px-3 px-xl-4 mt-2" style="max-width: 1600px;">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+                <i class="bi bi-check-circle-fill me-2"></i> @TempData["SuccessMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i> @TempData["ErrorMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+    </div>
+
+    <!-- 4. BỐ CỤC 3 CỘT: CỘT TRÁI & PHẢI THU BÉ, DỊCH RA NGOÀI, CỘT GIỮA RỘNG HÀNG 3 SÁCH -->
+    <main class="container-fluid px-3 px-xl-4 my-3" style="max-width: 1600px;">
+        <div class="row g-3">
+            <!-- CỘT TRÁI (BÉ HƠN, DỊCH RA NGOÀI): DANH MỤC CHỦ ĐỀ SÁCH -->
+            <aside class="layout-sidebar-left">
+                @await Component.InvokeAsync("ChuDeMenu")
+
+                <!-- Khối cam kết phong cách Nhà sách Phương Nam -->
+                <div class="card shadow-sm border-0 bg-white mb-3" style="border-radius: 8px;">
+                    <div class="card-body p-2 text-start">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-patch-check-fill text-primary fs-5 me-2"></i>
+                            <div class="small fw-semibold" style="font-size: 0.78rem;">100% Sách Thật - Chính Hãng</div>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-box-seam-fill text-success fs-5 me-2"></i>
+                            <div class="small fw-semibold" style="font-size: 0.78rem;">Đóng Gói Chuyên Nghiệp</div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-arrow-repeat text-danger fs-5 me-2"></i>
+                            <div class="small fw-semibold" style="font-size: 0.78rem;">Đổi Trả Nhanh Chóng 7 Ngày</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- CỘT GIỮA (RỘNG RÃI, HÀNG 3 CUỐN): KHỐI NỘI DUNG CHÍNH -->
+            <section class="layout-content-center">
+                @RenderBody()
+            </section>
+
+            <!-- CỘT PHẢI (CHUẨN 100% THEO HÌNH VẼ ĐỀ BÀI CÂU 1) -->
+            <aside class="layout-sidebar-right">
+                <!-- 1. VÙNG THÔNG TIN GIỎ HÀNG (HỘP VÀNG THEO ĐẶC TẢ) -->
+                @await Component.InvokeAsync("CartSummary")
+
+                <!-- 2. VÙNG QUẢNG CÁO 2 (DANH MỤC BANNER CÒN HẠN TỪ CSDL) -->
+                @await Component.InvokeAsync("QuangCaoSidebar")
+
+                <!-- 3. VÙNG DANH MỤC SÁCH BÁN CHẠY (TOP 5 ĐẦU SÁCH BÁN NHIỀU NHẤT CÓ LINK CHI TIẾT) -->
+                @await Component.InvokeAsync("SachBanChay")
+            </aside>
+        </div>
+    </main>
+
+    <!-- 5. DẢI ĐỐI TÁC THƯƠNG HIỆU PHƯƠNG NAM STYLE -->
+    <div class="pn-partners-strip text-center">
+        <div class="container-fluid px-3 px-xl-4" style="max-width: 1600px;">
+            <span class="small fw-bold text-muted text-uppercase me-4">Đối tác xuất bản & liên kết:</span>
+            <span class="badge bg-light text-secondary border px-3 py-2 me-2">NXB Trẻ</span>
+            <span class="badge bg-light text-secondary border px-3 py-2 me-2">NXB Giáo Dục</span>
+            <span class="badge bg-light text-secondary border px-3 py-2 me-2">NXB Thống Kê</span>
+            <span class="badge bg-light text-secondary border px-3 py-2 me-2">Fahasa</span>
+            <span class="badge bg-light text-secondary border px-3 py-2">Phương Nam Book</span>
+        </div>
+    </div>
+
+    <!-- 6. FOOTER ĐA CỘT HIỆN ĐẠI THEO PHONG CÁCH NHÀ SÁCH PHƯƠNG NAM -->
+    <footer class="pn-footer-main">
+        <div class="container-fluid px-3 px-xl-4" style="max-width: 1600px;">
+            <div class="row g-4">
+                <div class="col-md-5">
+                    <h6 class="pn-footer-title"><i class="bi bi-book me-1"></i> NHÀ SÁCH TRƯỜNG ĐHCN VIỆT - HUNG</h6>
+                    <p class="text-secondary small mb-2">
+                        Hệ thống cung cấp giáo trình, tài liệu chuyên khảo và ấn phẩm văn hóa phục vụ sự nghiệp giáo dục & đào tạo.
+                    </p>
+                    <p class="text-secondary small mb-1">
+                        <i class="bi bi-geo-alt-fill text-danger me-1"></i> <strong>Địa chỉ:</strong> 16 Xuân Khanh, Thị xã Sơn Tây, TP. Hà Nội
+                    </p>
+                    <p class="text-secondary small mb-0">
+                        <i class="bi bi-telephone-fill text-success me-1"></i> <strong>Điện thoại:</strong> 0983308081
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="pn-footer-title">Dịch Vụ & Hỗ Trợ</h6>
+                    <ul class="list-unstyled small text-secondary" style="line-height: 2;">
+                        <li><a asp-controller="Home" asp-action="Privacy" class="text-decoration-none text-secondary">&bull; Giới thiệu nhà sách</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">&bull; Chính sách đổi trả sách</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">&bull; Phương thức vận chuyển</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">&bull; Hướng dẫn đặt hàng trực tuyến</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="pn-footer-title">Môn Học & Đồ Án</h6>
+                    <p class="small text-secondary mb-2">
+                        <strong>Bài tập lớn:</strong> Phát triển ứng dụng Web nâng cao (PTWNC)
+                    </p>
+                    <p class="small text-secondary mb-2">
+                        <strong>Công nghệ:</strong> ASP.NET Core MVC, Entity Framework Core, SQL Server
+                    </p>
+                    <div class="d-flex gap-2">
+                        <span class="badge bg-primary">ASP.NET Core</span>
+                        <span class="badge bg-success">EF Core</span>
+                        <span class="badge bg-danger">SQL Server</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- THANH BẢN QUYỀN CHUẨN ĐỀ BÀI -->
+    <div class="pn-footer-copy text-center">
+        <div class="container">
+            @@2012 - Nhà sách trường Đại học công nghiệp Việt - Hung. Địa chỉ: 16 Xuân Khanh, Sơn Tây, Hà Nội &bull; ĐT: 0983308081
+        </div>
+    </div>
+
+    <!-- NÚT CUỘN LÊN ĐẦU TRANG (FLOATING SCROLL TO TOP) -->
+    <div id="btnScrollToTop" class="btn-scroll-top" title="Cuộn lên đầu trang">
+        <i class="bi bi-chevron-up fs-5"></i>
+    </div>
+
+    <!-- KHỞI TẠO BIẾN TRẠNG THÁI TÀI KHOẢN -->
+    <script>
+        window.IS_USER_LOGGED_IN = @(User.Identity?.IsAuthenticated == true ? "true" : "false");
+        window.CURRENT_USER_NAME = "@(User.Identity?.Name ?? "")";
+        window.CURRENT_USER_ID = "@(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? "")";
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

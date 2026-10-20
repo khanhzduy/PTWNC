@@ -1,0 +1,62 @@
+@model BookOnline.ViewModels.SachViewModel
+
+<div class="pn-product-card">
+    <span class="pn-badge-new"><i class="bi bi-stars"></i> Mới</span>
+    
+    <button type="button" class="btn-wishlist" title="Thêm vào yêu thích" data-ms="@Model.Ms" data-tensach="@Model.TenSach">
+        <i class="bi bi-heart-fill"></i>
+    </button>
+
+    <div class="pn-thumb-box">
+        <a asp-controller="Sach" asp-action="Details" asp-route-id="@Model.Ms">
+            <img src="@Model.ImageUrl" alt="@Model.TenSach" class="pn-thumb-img" 
+                 onerror="this.src='/images/Upload/Sample.jpg'" />
+        </a>
+    </div>
+    
+    <div class="flex-grow-1">
+        <div class="pn-stars-rating">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <span class="text-muted small ms-1">(5.0)</span>
+        </div>
+
+        <a asp-controller="Sach" asp-action="Details" asp-route-id="@Model.Ms" class="pn-product-title" title="@Model.TenSach">
+            @Model.TenSach
+        </a>
+        
+        <div class="pn-product-meta d-flex flex-column gap-1 mb-2" style="font-size: 0.74rem;">
+            <div class="text-truncate text-secondary" title="Tác giả: @(Model.TenTacGia ?? "Đang cập nhật")">
+                <i class="bi bi-person-fill text-primary me-1"></i><strong>Tác giả:</strong> @(string.IsNullOrWhiteSpace(Model.TenTacGia) ? "Đang cập nhật" : Model.TenTacGia)
+            </div>
+            <div class="text-truncate text-secondary" title="Nhà xuất bản: @(Model.TenNXB ?? "Đang cập nhật")">
+                <i class="bi bi-building text-primary me-1"></i><strong>NXB:</strong> @(string.IsNullOrWhiteSpace(Model.TenNXB) ? "Đang cập nhật" : Model.TenNXB)
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-2 pt-2 border-top">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="pn-price-tag mb-0">
+                @((Model.DonGia ?? 0).ToString("#,##0")) <span class="fs-6">VNĐ</span>
+            </div>
+            <span class="badge bg-danger-subtle text-danger border border-danger-subtle rounded-pill small px-2 py-1" style="font-size: 0.7rem; font-weight: 700;">
+                -10%
+            </span>
+        </div>
+
+        <form asp-controller="GioHang" asp-action="ThemGioHang" method="post" class="form-add-to-cart m-0">
+            <input type="hidden" name="ms" value="@Model.Ms" />
+            <input type="hidden" name="soLuong" value="1" />
+            <button type="submit" class="btn-pn-buy" data-ms="@Model.Ms" data-tensach="@Model.TenSach">
+                <i class="bi bi-cart2"></i>
+                <span>CHỌN MUA</span>
+                <i class="bi bi-chevron-right small"></i>
+            </button>
+        </form>
+    </div>
+</div>
+

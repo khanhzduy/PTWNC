@@ -1,0 +1,280 @@
+:root {
+    --fahasa-red: #c92127;
+    --fahasa-red-dark: #a81a20;
+    --primary-green: #1b7a3e;
+    --primary-green-dark: #145e30;
+    --warm-yellow: #fff8e1;
+    --warm-yellow-border: #fbc02d;
+    --text-dark: #333333;
+    --text-muted: #777777;
+    --bg-page: #f5f5fa;
+}
+
+body {
+    background-color: var(--bg-page);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-dark);
+}
+
+/* Banner & Header Top */
+.site-header {
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.top-banner-bar {
+    background: #ffffff;
+    padding: 10px 0;
+}
+
+.banner-img-header {
+    max-height: 110px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Main Nav Bar */
+.main-navbar {
+    background-color: var(--primary-green) !important;
+}
+
+.main-navbar .nav-link {
+    color: #ffffff !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 10px 16px !important;
+    transition: background-color 0.2s;
+}
+
+.main-navbar .nav-link:hover {
+    background-color: var(--primary-green-dark);
+    border-radius: 4px;
+}
+
+/* Sidebar Chu De */
+.chude-card {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.chude-header {
+    background-color: var(--primary-green) !important;
+    font-size: 1rem;
+    padding: 12px 16px;
+    letter-spacing: 0.5px;
+}
+
+.chude-list .chude-item {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+    border-color: #f0f0f0;
+    color: #444;
+    transition: all 0.2s;
+}
+
+.chude-list .chude-item:hover {
+    background-color: #e8f5e9;
+    color: var(--primary-green);
+    padding-left: 18px;
+}
+
+/* Yellow Cart Box Widget */
+.cart-box-yellow {
+    background-color: var(--warm-yellow);
+    border: 2px dashed var(--warm-yellow-border);
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cart-box-yellow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(251, 192, 45, 0.25) !important;
+}
+
+/* Product Grid & Cards (Fahasa Style) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.product-card {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s ease-in-out;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    border-color: #ffcdd2;
+}
+
+.product-thumb-wrapper {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.product-thumb {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-thumb {
+    transform: scale(1.05);
+}
+
+.product-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #212529;
+    text-decoration: none;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.7em;
+    margin-bottom: 6px;
+}
+
+.product-title:hover {
+    color: var(--fahasa-red);
+}
+
+.product-meta {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.product-price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--fahasa-red);
+    margin-bottom: 10px;
+}
+
+.btn-buy-now {
+    background: linear-gradient(180deg, #f33828 0%, #c92127 100%);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 6px 12px;
+    width: 100%;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: opacity 0.2s;
+}
+
+.btn-buy-now:hover {
+    opacity: 0.92;
+    color: #ffffff;
+}
+
+/* Sách mới Section */
+.sach-moi-box {
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.sach-moi-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--fahasa-red);
+    margin-bottom: 12px;
+}
+
+.sach-moi-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.sach-moi-item {
+    padding: 6px 0;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px dashed #eeeeee;
+}
+
+.sach-moi-item:last-child {
+    border-bottom: none;
+}
+
+.sach-moi-item a {
+    color: #333333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.sach-moi-item a:hover {
+    color: var(--fahasa-red);
+}
+
+/* Random Ad Banner (Quảng cáo 1) */
+.random-ads-wrapper {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.random-ad-item {
+    flex: 1;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.random-ad-item img {
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+.random-ad-item:hover img {
+    transform: scale(1.02);
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--primary-green);
+    color: #ffffff;
+    padding: 24px 0;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+
+.site-footer a {
+    color: #ffffff;
+    text-decoration: underline;
+}

@@ -1,0 +1,67 @@
+@model BookOnline.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Đăng nhập tài khoản";
+}
+
+<div class="row justify-content-center my-4">
+    <div class="col-md-7 col-lg-5">
+        <div class="card shadow-sm border-0 bg-white" style="border-radius: 12px; border: 1px solid var(--pn-border) !important;">
+            <div class="card-header bg-white text-center border-0 pt-4 pb-0">
+                <div class="d-inline-flex align-items-center justify-content-center bg-primary-subtle text-primary rounded-circle mb-2" style="width: 58px; height: 58px;">
+                    <i class="bi bi-person-fill fs-2"></i>
+                </div>
+                <h4 class="fw-bold text-dark mb-1">ĐĂNG NHẬP</h4>
+                <p class="text-muted small mb-0">Nhà sách trực tuyến - ĐHCN Việt - Hung</p>
+            </div>
+
+            <div class="card-body p-4">
+                <form asp-action="Login" method="post" autocomplete="on">
+                    <input type="hidden" asp-for="ReturnUrl" />
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2 small shadow-none"></div>
+
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <label asp-for="TaiKhoan" class="form-label fw-semibold small mb-0">Tên đăng nhập hoặc Email</label>
+                            <span class="text-muted" style="font-size: 0.72rem;">Tối đa 50 ký tự</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light text-muted"><i class="bi bi-person"></i></span>
+                            <input asp-for="TaiKhoan" class="form-control" placeholder="Nhập tên tài khoản hoặc email..." maxlength="50" autofocus />
+                        </div>
+                        <span asp-validation-for="TaiKhoan" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <label asp-for="MatKhau" class="form-label fw-semibold small mb-0">Mật khẩu</label>
+                            <span class="text-muted" style="font-size: 0.72rem;">Tối đa 15 ký tự</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light text-muted"><i class="bi bi-lock"></i></span>
+                            <input asp-for="MatKhau" type="password" id="loginPassword" class="form-control border-end-0" placeholder="Nhập mật khẩu..." maxlength="15" />
+                            <button type="button" class="btn btn-outline-secondary border-start-0 btn-toggle-pw" data-target="loginPassword" title="Hiện/ẩn mật khẩu">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                        <span asp-validation-for="MatKhau" class="text-danger small"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-warning w-100 py-2 fw-bold text-dark shadow-sm rounded-pill mt-3">
+                        <i class="bi bi-box-arrow-in-right me-1"></i> ĐĂNG NHẬP NGAY
+                    </button>
+
+                    <div class="text-center mt-3 pt-3 border-top">
+                        <span class="text-muted small">Chưa có tài khoản?</span>
+                        <a asp-action="Register" class="text-decoration-none fw-bold text-primary ms-1">
+                            Đăng ký ngay <i class="bi bi-arrow-right-short"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

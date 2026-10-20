@@ -1,0 +1,48 @@
+@model IEnumerable<BookOnline.ViewModels.SachViewModel>
+
+<div class="card shadow-sm border-0 mb-3 bg-white" style="border-radius: 10px; border: 1px solid var(--pn-border);">
+    <div class="card-header bg-white text-danger fw-bold small text-uppercase py-2 d-flex align-items-center justify-content-between border-bottom">
+        <span><i class="bi bi-fire text-danger me-1"></i> SÁCH BÁN CHẠY</span>
+        <span class="badge bg-danger-subtle text-danger border border-danger-subtle">Top 5</span>
+    </div>
+    <div class="card-body p-2">
+        @if (Model != null && Model.Any())
+        {
+            var rank = 1;
+            <ul class="list-unstyled mb-0">
+                @foreach (var s in Model)
+                {
+                    var rankColor = rank == 1 ? "bg-danger text-white" : rank == 2 ? "bg-warning text-dark" : rank == 3 ? "bg-primary text-white" : "bg-light text-secondary border";
+                    <li class="d-flex align-items-start py-2 border-bottom @(rank == 5 ? "border-bottom-0" : "")">
+                        <span class="badge rounded-circle @rankColor me-2 d-inline-flex align-items-center justify-content-center" style="width: 22px; height: 22px; font-size: 0.72rem; flex-shrink: 0;">
+                            @rank
+                        </span>
+                        <div class="flex-grow-1 overflow-hidden">
+                            <a asp-controller="Sach" asp-action="Details" asp-route-id="@s.Ms" class="text-decoration-none fw-semibold text-dark hover-primary d-block text-truncate" title="@s.TenSach" style="font-size: 0.85rem;">
+                                @s.TenSach
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between mt-1">
+                                <span class="text-danger fw-bold" style="font-size: 0.8rem;">
+                                    @((s.DonGia ?? 0).ToString("#,##0")) đ
+                                </span>
+                                <span class="text-muted" style="font-size: 0.72rem;">
+                                    Đã bán: <strong>@(s.SoLuongBan ?? 0)</strong>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    rank++;
+                }
+            </ul>
+            <div class="text-center pt-2 mt-1 border-top">
+                <a asp-controller="Sach" asp-action="SachBanChay" class="btn btn-sm btn-outline-danger rounded-pill px-3 py-1 fw-semibold w-100" style="font-size: 0.78rem;">
+                    Xem thêm sách bán chạy <i class="bi bi-arrow-right-short"></i>
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="text-center p-2 text-muted small">Đang cập nhật danh mục</div>
+        }
+    </div>
+</div>

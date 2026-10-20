@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x110;&#x1EB7;t h&#xE0;ng th&#xE0;nh c&#xF4;ng - Nhà Sách Phương Nam & ĐHCN Việt - Hung</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="/css/site.css?v=j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg" />
+    <link rel="stylesheet" href="/css/phuongnam-theme.css?v=GSAyuyLO53jnL_b4NLMiraizvI0ubN_KakslOyuBLv0" />
+</head>
+<body>
+    <!-- 1. THANH THÔNG BÁO ƯU ĐÃI ĐẦU TRANG (PHƯƠNG NAM TOPBAR) -->
+    <div b-e8bgn0he1q class="top-notice-bar text-center">
+        <i b-e8bgn0he1q class="bi bi-gift-fill me-1"></i> Chào mừng đến với Nhà sách trực tuyến Book Online - Trường Đại học Công nghiệp Việt - Hung!
+    </div>
+
+    <!-- 2. VÙNG HEADER CHÍNH PHONG CÁCH NHÀ SÁCH PHƯƠNG NAM -->
+    <header b-e8bgn0he1q class="site-header-pn text-white py-3">
+        <div b-e8bgn0he1q class="container-fluid px-3 px-xl-4" style="max-width: 1600px;">
+            <div b-e8bgn0he1q class="row align-items-center g-3">
+                <!-- Logo thương hiệu -->
+                <div b-e8bgn0he1q class="col-lg-4 col-md-5 col-12 text-center text-md-start">
+                    <a class="brand-logo-text d-inline-flex flex-column text-decoration-none" href="/">
+                        <span b-e8bgn0he1q class="fs-4 fw-bold text-white"><i b-e8bgn0he1q class="bi bi-book-half text-warning me-1"></i> NHÀ SÁCH <span b-e8bgn0he1q class="brand-sub">VIỆT - HUNG</span></span>
+                        <span b-e8bgn0he1q class="small text-white-50" style="font-size: 0.75rem; letter-spacing: 1px;">BOOK ONLINE &bull; PHƯƠNG NAM CONCEPT</span>
+                    </a>
+                </div>
+
+                <!-- Thanh tìm kiếm kiểu Pill tròn của Phương Nam -->
+                <div b-e8bgn0he1q class="col-lg-5 col-md-4 col-12">
+                    <form method="get" class="d-flex" action="/">
+                        <input b-e8bgn0he1q type="text" name="keyword" value="" class="form-control search-input-pill shadow-none" placeholder="Tìm kiếm tựa sách, chủ đề, tác giả, NXB..." />
+                        <button b-e8bgn0he1q type="submit" class="search-btn-pill" title="Tìm kiếm">
+                            <i b-e8bgn0he1q class="bi bi-search"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Cụm Tài khoản & Giỏ hàng nhanh -->
+                <div b-e8bgn0he1q class="col-lg-3 col-md-3 col-12 text-center text-md-end">
+                    <div b-e8bgn0he1q class="d-inline-flex align-items-center gap-3">
+                            <div b-e8bgn0he1q class="d-flex align-items-center gap-2 small">
+                                <a class="text-white text-decoration-none hover-warning" href="/Account/Login">
+                                    <i b-e8bgn0he1q class="bi bi-person fs-5 align-middle"></i> Đăng nhập
+                                </a>
+                                <span b-e8bgn0he1q class="text-white-50">|</span>
+                                <a class="text-white text-decoration-none hover-warning" href="/Account/Register">
+                                    Đăng ký
+                                </a>
+                            </div>
+
+                        <a class="btn btn-warning btn-sm rounded-pill px-3 fw-bold position-relative text-dark d-inline-flex align-items-center" id="btnHeaderCart" title="Xem giỏ hàng & thanh toán" href="/GioHang">
+                            <i b-e8bgn0he1q class="bi bi-cart3 me-1 fs-6"></i>
+                            <span b-e8bgn0he1q>Giỏ hàng</span>
+                            <span b-e8bgn0he1q class="badge bg-danger rounded-pill ms-1 header-cart-badge" id="headerCartCount">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. THANH MENU NGANG (NAVBAR) -->
+    <nav b-e8bgn0he1q class="navbar navbar-expand-lg bg-white border-bottom shadow-sm p-0">
+        <div b-e8bgn0he1q class="container-fluid px-3 px-xl-4" style="max-width: 1600px;">
+            <button b-e8bgn0he1q class="navbar-toggler my-2" type="button" data-bs-toggle="collapse" data-bs-target="#pnNav" aria-controls="pnNav" aria-expanded="false">
+                <span b-e8bgn0he1q class="navbar-toggler-icon"></span>
+            </button>
+            <div b-e8bgn0he1q class="collapse navbar-collapse" id="pnNav">
+                <ul b-e8bgn0he1q class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li b-e8bgn0he1q class="nav-item">
+                        <a class="nav-link text-primary fw-bold text-uppercase px-3 py-2" href="/"><i b-e8bgn0he1q class="bi bi-house-door me-1"></i> Trang chủ</a>
+                    </li>
+                    <li b-e8bgn0he1q class="nav-item">
+                        <a class="nav-link text-dark fw-semibold text-uppercase px-3 py-2" href="/Sach/SachMoi"><i b-e8bgn0he1q class="bi bi-stars text-danger me-1"></i> Sách mới</a>
+                    </li>
+                    <li b-e8bgn0he1q class="nav-item">
+                        <a class="nav-link text-dark fw-semibold text-uppercase px-3 py-2" href="/Sach/SachBanChay"><i b-e8bgn0he1q class="bi bi-fire text-danger me-1"></i> Sách bán chạy</a>
+                    </li>
+                    <li b-e8bgn0he1q class="nav-item">
+                        <a class="nav-link text-dark fw-semibold text-uppercase px-3 py-2" href="/Home/Privacy"><i b-e8bgn0he1q class="bi bi-info-circle text-primary me-1"></i> Giới thiệu</a>
+                    </li>
+                </ul>
+                <div b-e8bgn0he1q class="d-none d-lg-block text-secondary small">
+                    <i b-e8bgn0he1q class="bi bi-headset text-danger me-1"></i> Hotline: <strong b-e8bgn0he1q class="text-danger">0983308081</strong>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- THÔNG BÁO FLASH MESSAGE -->
+    <div b-e8bgn0he1q class="container-fluid px-3 px-xl-4 mt-2" style="max-width: 1600px;">
+    </div>
+
+    <!-- 4. BỐ CỤC 3 CỘT: CỘT TRÁI & PHẢI THU BÉ, DỊCH RA NGOÀI, CỘT GIỮA RỘNG HÀNG 3 SÁCH -->
+    <main b-e8bgn0he1q class="container-fluid px-3 px-xl-4 my-3" style="max-width: 1600px;">
+        <div b-e8bgn0he1q class="row g-3">
+            <!-- CỘT TRÁI (BÉ HƠN, DỊCH RA NGOÀI): DANH MỤC CHỦ ĐỀ SÁCH -->
+            <aside b-e8bgn0he1q class="layout-sidebar-left">
+                
+<div class="card pn-chude-card mb-3 shadow-sm">
+    <div class="card-header pn-chude-header d-flex align-items-center">
+        <i class="bi bi-grid-3x3-gap-fill me-2 text-warning"></i>
+        <span>DANH MỤC CHỦ ĐỀ SÁCH</span>
+    </div>
+    <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center pn-chude-item " href="/Sach/TheoChuDe?mcd=4">
+                    <span class="text-truncate">
+                        <i class="bi bi-journal-bookmark text-primary me-2"></i>
+                        Ngo&#x1EA1;i ng&#x1EEF;
+                    </span>
+                    <span class="badge pn-badge-count">
+                        1
+                    </span>
+                </a>
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center pn-chude-item " href="/Sach/TheoChuDe?mcd=5">
+                    <span class="text-truncate">
+                        <i class="bi bi-journal-bookmark text-primary me-2"></i>
+                        C&#xF4;ng ngh&#x1EC7; th&#xF4;ng tin
+                    </span>
+                    <span class="badge pn-badge-count">
+                        32
+                    </span>
+                </a>
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center pn-chude-item " href="/Sach/TheoChuDe?mcd=9">
+                    <span class="text-truncate">
+                        <i class="bi bi-journal-bookmark text-primary me-2"></i>
+                        Kinh t&#x1EBF;
+                    </span>
+                    <span class="badge pn-badge-count">
+                        5
+                    </span>
+                </a>
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center pn-chude-item " href="/Sach/TheoChuDe?mcd=10">
+                    <span class="text-truncate">
+                        <i class="bi bi-journal-bookmark text-primary me-2"></i>
+                        V&#x103;n h&#x1ECD;c n&#x1B0;&#x1EDB;c ngo&#xE0;i
+                    </span>
+                    <span class="badge pn-badge-count">
+                        2
+                    </span>
+                </a>
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center pn-chude-item " href="/Sach/TheoChuDe?mcd=14">
+                    <span class="text-truncate">
+                        <i class="bi bi-journal-bookmark text-primary me-2"></i>
+                        Khoa h&#x1ECD;c k&#x1EF9; thu&#x1EAD;t
+                    </span>
+                    <span class="badge pn-badge-count">
+                        1
+                    </span>
+                </a>
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center pn-chude-item " href="/Sach/TheoChuDe?mcd=18">
+                    <span class="text-truncate">
+                        <i class="bi bi-journal-bookmark text-primary me-2"></i>
+                        Phong t&#x1EE5;c
+                    </span>
+                    <span class="badge pn-badge-count">
+                        1
+                    </span>
+                </a>
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center pn-chude-item " href="/Sach/TheoChuDe?mcd=28">
+                    <span class="text-truncate">
+                        <i class="bi bi-journal-bookmark text-primary me-2"></i>
+                        Th&#x1EC3; d&#x1EE5;c th&#x1EC3; thao
+                    </span>
+                    <span class="badge pn-badge-count">
+                        1
+                    </span>
+                </a>
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center pn-chude-item " href="/Sach/TheoChuDe?mcd=36">
+                    <span class="text-truncate">
+                        <i class="bi bi-journal-bookmark text-primary me-2"></i>
+                        Y H&#x1ECD;c
+                    </span>
+                    <span class="badge pn-badge-count">
+                        1
+                    </span>
+                </a>
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center pn-chude-item " href="/Sach/TheoChuDe?mcd=37">
+                    <span class="text-truncate">
+                        <i class="bi bi-journal-bookmark text-primary me-2"></i>
+                        K&#x1EBF; to&#xE1;n
+                    </span>
+                    <span class="badge pn-badge-count">
+                        4
+                    </span>
+                </a>
+    </div>
+</div>
+
+
+                <!-- Khối cam kết phong cách Nhà sách Phương Nam -->
+                <div b-e8bgn0he1q class="card shadow-sm border-0 bg-white mb-3" style="border-radius: 8px;">
+                    <div b-e8bgn0he1q class="card-body p-2 text-start">
+                        <div b-e8bgn0he1q class="d-flex align-items-center mb-2">
+                            <i b-e8bgn0he1q class="bi bi-patch-check-fill text-primary fs-5 me-2"></i>
+                            <div b-e8bgn0he1q class="small fw-semibold" style="font-size: 0.78rem;">100% Sách Thật - Chính Hãng</div>
+                        </div>
+                        <div b-e8bgn0he1q class="d-flex align-items-center mb-2">
+                            <i b-e8bgn0he1q class="bi bi-box-seam-fill text-success fs-5 me-2"></i>
+                            <div b-e8bgn0he1q class="small fw-semibold" style="font-size: 0.78rem;">Đóng Gói Chuyên Nghiệp</div>
+                        </div>
+                        <div b-e8bgn0he1q class="d-flex align-items-center">
+                            <i b-e8bgn0he1q class="bi bi-arrow-repeat text-danger fs-5 me-2"></i>
+                            <div b-e8bgn0he1q class="small fw-semibold" style="font-size: 0.78rem;">Đổi Trả Nhanh Chóng 7 Ngày</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- CỘT GIỮA (RỘNG RÃI, HÀNG 3 CUỐN): KHỐI NỘI DUNG CHÍNH -->
+            <section b-e8bgn0he1q class="layout-content-center">
+                
+<div class="card shadow-sm border-0 mb-4 bg-white p-5 text-center">
+    <div class="mb-3 text-success">
+        <i class="bi bi-check-circle-fill" style="font-size: 4rem;"></i>
+    </div>
+    <h3 class="fw-bold text-success mb-2">ĐẶT HÀNG THÀNH CÔNG!</h3>
+    <p class="text-secondary fs-5 mb-4">
+        Cảm ơn quý khách đã mua sắm tại Nhà sách trường Đại học Công nghiệp Việt - Hung.<br />
+        Mã đơn hàng của bạn là: <strong class="text-danger fs-4">#10024</strong>
+    </p>
+
+    <div class="alert alert-light border mx-auto text-start p-4" style="max-width: 500px;">
+        <div class="d-flex align-items-center mb-2">
+            <i class="bi bi-info-circle text-primary me-2"></i>
+            <span>Đơn hàng đã được lưu thành công vào CSDL.</span>
+        </div>
+        <div class="d-flex align-items-center mb-2">
+            <i class="bi bi-truck text-success me-2"></i>
+            <span>Dự kiến giao hàng trong vòng 3 ngày làm việc.</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <i class="bi bi-telephone text-info me-2"></i>
+            <span>Hotline hỗ trợ: <strong>0983308081</strong></span>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a class="btn btn-success btn-lg px-4 me-2" href="/">
+            <i class="bi bi-house-door-fill me-1"></i> Trở về Trang chủ
+        </a>
+        <a class="btn btn-outline-primary btn-lg px-4" href="/Sach/SachMoi">
+            <i class="bi bi-book-half me-1"></i> Xem tiếp sách mới
+        </a>
+    </div>
+</div>
+
+            </section>
+
+            <!-- CỘT PHẢI (CHUẨN 100% THEO HÌNH VẼ ĐỀ BÀI CÂU 1) -->
+            <aside b-e8bgn0he1q class="layout-sidebar-right">
+                <!-- 1. VÙNG THÔNG TIN GIỎ HÀNG (HỘP VÀNG THEO ĐẶC TẢ) -->
+                
+<div class="pn-cart-widget mb-3 shadow-sm">
+    <a class="text-decoration-none text-dark d-block" href="/GioHang">
+        <div class="d-flex align-items-center mb-2 pb-2 border-bottom border-warning">
+            <img src="/images/Sotien.gif" alt="Tiền" class="me-2" style="height: 24px;" onerror="this.src='/images/Upload/Sample.jpg'" />
+            <div>
+                <div class="small text-muted fw-semibold">Tổng thanh toán:</div>
+                <div class="pn-cart-amount" id="sidebarCartAmount">
+                    0 <span class="fs-6 text-dark">vnđ</span>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-between pt-1">
+            <div class="d-flex align-items-center">
+                <img src="/images/Giohang.gif" alt="Giỏ hàng" class="me-2" style="height: 22px;" onerror="this.src='/images/Upload/Sample.jpg'" />
+                <span class="fw-bold text-secondary">Giỏ hàng: <span class="text-primary fs-6" id="sidebarCartQty">0</span> cuốn</span>
+            </div>
+            <span class="badge bg-primary rounded-pill px-2 py-1"><i class="bi bi-chevron-right"></i></span>
+        </div>
+    </a>
+</div>
+
+
+                <!-- 2. VÙNG QUẢNG CÁO 2 (DANH MỤC BANNER CÒN HẠN TỪ CSDL) -->
+                
+<div class="card shadow-sm border-0 mb-3 bg-white" style="border-radius: 10px; border: 1px solid var(--pn-border);">
+    <div class="card-header bg-white text-primary fw-bold small text-uppercase py-2 d-flex align-items-center justify-content-between border-bottom">
+        <span><i class="bi bi-patch-check-fill text-warning me-1"></i> Đối tác đồng hành</span>
+        <span class="badge bg-light text-muted border">Quảng cáo</span>
+    </div>
+    <div class="card-body p-2 d-flex flex-column gap-2">
+                <a href="https://hacom.vn/" target="_blank" rel="noopener noreferrer" class="d-block text-center p-2 rounded border bg-light text-decoration-none shadow-sm" title="H&#xE0; N&#x1ED9;i Computer">
+                    <img src="/images/Upload/HaNoiCom.png" alt="H&#xE0; N&#x1ED9;i Computer" class="img-fluid rounded" style="max-height: 80px; width: 100%; object-fit: contain;" onerror="this.src='/images/Upload/QC_BEN.png'" />
+                </a>
+                <a href="https://ben.com.vn/" target="_blank" rel="noopener noreferrer" class="d-block text-center p-2 rounded border bg-light text-decoration-none shadow-sm" title="C&#xF4;ng ty m&#xE1;y t&#xED;nh BEN">
+                    <img src="/images/Upload/QC_BEN.png" alt="C&#xF4;ng ty m&#xE1;y t&#xED;nh BEN" class="img-fluid rounded" style="max-height: 80px; width: 100%; object-fit: contain;" onerror="this.src='/images/Upload/QC_BEN.png'" />
+                </a>
+                <a href="https://www.fahasa.com/" target="_blank" rel="noopener noreferrer" class="d-block text-center p-2 rounded border bg-light text-decoration-none shadow-sm" title="Ch&#x1EE9;ng kho&#xE1;n Bi&#x1EC3;n Vi&#x1EC7;t (CBV)">
+                    <img src="/images/Upload/QC_CBV.png" alt="Ch&#x1EE9;ng kho&#xE1;n Bi&#x1EC3;n Vi&#x1EC7;t (CBV)" class="img-fluid rounded" style="max-height: 80px; width: 100%; object-fit: contain;" onerror="this.src='/images/Upload/QC_BEN.png'" />
+                </a>
+    </div>
+</div>
+
+
+                <!-- 3. VÙNG DANH MỤC SÁCH BÁN CHẠY (TOP 5 ĐẦU SÁCH BÁN NHIỀU NHẤT CÓ LINK CHI TIẾT) -->
+                
+<div class="card shadow-sm border-0 mb-3 bg-white" style="border-radius: 10px; border: 1px solid var(--pn-border);">
+    <div class="card-header bg-white text-danger fw-bold small text-uppercase py-2 d-flex align-items-center justify-content-between border-bottom">
+        <span><i class="bi bi-fire text-danger me-1"></i> SÁCH BÁN CHẠY</span>
+        <span class="badge bg-danger-subtle text-danger border border-danger-subtle">Top 5</span>
+    </div>
+    <div class="card-body p-2">
+            <ul class="list-unstyled mb-0">
+                    <li class="d-flex align-items-start py-2 border-bottom ">
+                        <span class="badge rounded-circle bg-danger text-white me-2 d-inline-flex align-items-center justify-content-center" style="width: 22px; height: 22px; font-size: 0.72rem; flex-shrink: 0;">
+                            1
+                        </span>
+                        <div class="flex-grow-1 overflow-hidden">
+                            <a class="text-decoration-none fw-semibold text-dark hover-primary d-block text-truncate" title="Visual Basic 2005 T&#x1EAD;p 3, Quy&#x1EC3;n 2: L&#x1EAD;p Tr&#xEC;nh Web V&#x1EDB;i C&#x1A1; S&#x1EDF; D&#x1EEF; Li&#x1EC7;u" style="font-size: 0.85rem;" href="/Sach/Details/4">
+                                Visual Basic 2005 T&#x1EAD;p 3, Quy&#x1EC3;n 2: L&#x1EAD;p Tr&#xEC;nh Web V&#x1EDB;i C&#x1A1; S&#x1EDF; D&#x1EEF; Li&#x1EC7;u
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between mt-1">
+                                <span class="text-danger fw-bold" style="font-size: 0.8rem;">
+                                    20,000 đ
+                                </span>
+                                <span class="text-muted" style="font-size: 0.72rem;">
+                                    Đã bán: <strong>240</strong>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start py-2 border-bottom ">
+                        <span class="badge rounded-circle bg-warning text-dark me-2 d-inline-flex align-items-center justify-content-center" style="width: 22px; height: 22px; font-size: 0.72rem; flex-shrink: 0;">
+                            2
+                        </span>
+                        <div class="flex-grow-1 overflow-hidden">
+                            <a class="text-decoration-none fw-semibold text-dark hover-primary d-block text-truncate" title="Gi&#xE1;o tr&#xEC;nh Tin h&#x1ECD;c c&#x1A1; b&#x1EA3;n" style="font-size: 0.85rem;" href="/Sach/Details/1">
+                                Gi&#xE1;o tr&#xEC;nh Tin h&#x1ECD;c c&#x1A1; b&#x1EA3;n
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between mt-1">
+                                <span class="text-danger fw-bold" style="font-size: 0.8rem;">
+                                    26,000 đ
+                                </span>
+                                <span class="text-muted" style="font-size: 0.72rem;">
+                                    Đã bán: <strong>120</strong>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start py-2 border-bottom ">
+                        <span class="badge rounded-circle bg-primary text-white me-2 d-inline-flex align-items-center justify-content-center" style="width: 22px; height: 22px; font-size: 0.72rem; flex-shrink: 0;">
+                            3
+                        </span>
+                        <div class="flex-grow-1 overflow-hidden">
+                            <a class="text-decoration-none fw-semibold text-dark hover-primary d-block text-truncate" title="T&#x1EEB; Xiat&#x1A1;n &#x110;&#x1EBF;n &#x110;&#xF4;ha - To&#xE0;n C&#x1EA7;u H&#xF3;a V&#xE0; T&#x1ED5; Ch&#x1EE9;c Th&#x1B0;&#x1A1;ng M&#x1EA1;i Th&#x1EBF; Gi&#x1EDB;i (Ti&#x1EBF;ng N&#xF3;i B&#xE8; B&#x1EA1;n)" style="font-size: 0.85rem;" href="/Sach/Details/20">
+                                T&#x1EEB; Xiat&#x1A1;n &#x110;&#x1EBF;n &#x110;&#xF4;ha - To&#xE0;n C&#x1EA7;u H&#xF3;a V&#xE0; T&#x1ED5; Ch&#x1EE9;c Th&#x1B0;&#x1A1;ng M&#x1EA1;i Th&#x1EBF; Gi&#x1EDB;i (Ti&#x1EBF;ng N&#xF3;i B&#xE8; B&#x1EA1;n)
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between mt-1">
+                                <span class="text-danger fw-bold" style="font-size: 0.8rem;">
+                                    25,000 đ
+                                </span>
+                                <span class="text-muted" style="font-size: 0.72rem;">
+                                    Đã bán: <strong>99</strong>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start py-2 border-bottom ">
+                        <span class="badge rounded-circle bg-light text-secondary border me-2 d-inline-flex align-items-center justify-content-center" style="width: 22px; height: 22px; font-size: 0.72rem; flex-shrink: 0;">
+                            4
+                        </span>
+                        <div class="flex-grow-1 overflow-hidden">
+                            <a class="text-decoration-none fw-semibold text-dark hover-primary d-block text-truncate" title=" T&#x1EF7; Gi&#xE1; H&#x1ED1;i &#x110;o&#xE1;i - Nh&#x1EEF;ng V&#x1EA5;n &#x110;&#x1EC1; L&#xFD; Lu&#x1EAD;n V&#xE0; Th&#x1EF1;c Ti&#x1EC5;n &#x110;i&#x1EC1;u H&#xE0;nh &#x1EDE; Vi&#x1EC7;t Nam  &#xD;&#xA; " style="font-size: 0.85rem;" href="/Sach/Details/27">
+                                 T&#x1EF7; Gi&#xE1; H&#x1ED1;i &#x110;o&#xE1;i - Nh&#x1EEF;ng V&#x1EA5;n &#x110;&#x1EC1; L&#xFD; Lu&#x1EAD;n V&#xE0; Th&#x1EF1;c Ti&#x1EC5;n &#x110;i&#x1EC1;u H&#xE0;nh &#x1EDE; Vi&#x1EC7;t Nam  &#xD;&#xA; 
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between mt-1">
+                                <span class="text-danger fw-bold" style="font-size: 0.8rem;">
+                                    18,000 đ
+                                </span>
+                                <span class="text-muted" style="font-size: 0.72rem;">
+                                    Đã bán: <strong>98</strong>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start py-2 border-bottom border-bottom-0">
+                        <span class="badge rounded-circle bg-light text-secondary border me-2 d-inline-flex align-items-center justify-content-center" style="width: 22px; height: 22px; font-size: 0.72rem; flex-shrink: 0;">
+                            5
+                        </span>
+                        <div class="flex-grow-1 overflow-hidden">
+                            <a class="text-decoration-none fw-semibold text-dark hover-primary d-block text-truncate" title="C&#xE1;n B&#x1ED9; Qu&#x1EA3;n L&#xFD; Trong S&#x1EA3;n Xu&#x1EA5;t C&#xF4;ng Nghi&#x1EC7;p" style="font-size: 0.85rem;" href="/Sach/Details/15">
+                                C&#xE1;n B&#x1ED9; Qu&#x1EA3;n L&#xFD; Trong S&#x1EA3;n Xu&#x1EA5;t C&#xF4;ng Nghi&#x1EC7;p
+                            </a>
+                            <div class="d-flex align-items-center justify-content-between mt-1">
+                                <span class="text-danger fw-bold" style="font-size: 0.8rem;">
+                                    25,000 đ
+                                </span>
+                                <span class="text-muted" style="font-size: 0.72rem;">
+                                    Đã bán: <strong>89</strong>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+            </ul>
+            <div class="text-center pt-2 mt-1 border-top">
+                <a class="btn btn-sm btn-outline-danger rounded-pill px-3 py-1 fw-semibold w-100" style="font-size: 0.78rem;" href="/Sach/SachBanChay">
+                    Xem thêm sách bán chạy <i class="bi bi-arrow-right-short"></i>
+                </a>
+            </div>
+    </div>
+</div>
+
+            </aside>
+        </div>
+    </main>
+
+    <!-- 5. DẢI ĐỐI TÁC THƯƠNG HIỆU PHƯƠNG NAM STYLE -->
+    <div b-e8bgn0he1q class="pn-partners-strip text-center">
+        <div b-e8bgn0he1q class="container-fluid px-3 px-xl-4" style="max-width: 1600px;">
+            <span b-e8bgn0he1q class="small fw-bold text-muted text-uppercase me-4">Đối tác xuất bản & liên kết:</span>
+            <span b-e8bgn0he1q class="badge bg-light text-secondary border px-3 py-2 me-2">NXB Trẻ</span>
+            <span b-e8bgn0he1q class="badge bg-light text-secondary border px-3 py-2 me-2">NXB Giáo Dục</span>
+            <span b-e8bgn0he1q class="badge bg-light text-secondary border px-3 py-2 me-2">NXB Thống Kê</span>
+            <span b-e8bgn0he1q class="badge bg-light text-secondary border px-3 py-2 me-2">Fahasa</span>
+            <span b-e8bgn0he1q class="badge bg-light text-secondary border px-3 py-2">Phương Nam Book</span>
+        </div>
+    </div>
+
+    <!-- 6. FOOTER ĐA CỘT HIỆN ĐẠI THEO PHONG CÁCH NHÀ SÁCH PHƯƠNG NAM -->
+    <footer b-e8bgn0he1q class="pn-footer-main">
+        <div b-e8bgn0he1q class="container-fluid px-3 px-xl-4" style="max-width: 1600px;">
+            <div b-e8bgn0he1q class="row g-4">
+                <div b-e8bgn0he1q class="col-md-5">
+                    <h6 b-e8bgn0he1q class="pn-footer-title"><i b-e8bgn0he1q class="bi bi-book me-1"></i> NHÀ SÁCH TRƯỜNG ĐHCN VIỆT - HUNG</h6>
+                    <p b-e8bgn0he1q class="text-secondary small mb-2">
+                        Hệ thống cung cấp giáo trình, tài liệu chuyên khảo và ấn phẩm văn hóa phục vụ sự nghiệp giáo dục & đào tạo.
+                    </p>
+                    <p b-e8bgn0he1q class="text-secondary small mb-1">
+                        <i b-e8bgn0he1q class="bi bi-geo-alt-fill text-danger me-1"></i> <strong b-e8bgn0he1q>Địa chỉ:</strong> 16 Xuân Khanh, Thị xã Sơn Tây, TP. Hà Nội
+                    </p>
+                    <p b-e8bgn0he1q class="text-secondary small mb-0">
+                        <i b-e8bgn0he1q class="bi bi-telephone-fill text-success me-1"></i> <strong b-e8bgn0he1q>Điện thoại:</strong> 0983308081
+                    </p>
+                </div>
+                <div b-e8bgn0he1q class="col-md-3">
+                    <h6 b-e8bgn0he1q class="pn-footer-title">Dịch Vụ & Hỗ Trợ</h6>
+                    <ul b-e8bgn0he1q class="list-unstyled small text-secondary" style="line-height: 2;">
+                        <li b-e8bgn0he1q><a class="text-decoration-none text-secondary" href="/Home/Privacy">&bull; Giới thiệu nhà sách</a></li>
+                        <li b-e8bgn0he1q><a b-e8bgn0he1q href="#" class="text-decoration-none text-secondary">&bull; Chính sách đổi trả sách</a></li>
+                        <li b-e8bgn0he1q><a b-e8bgn0he1q href="#" class="text-decoration-none text-secondary">&bull; Phương thức vận chuyển</a></li>
+                        <li b-e8bgn0he1q><a b-e8bgn0he1q href="#" class="text-decoration-none text-secondary">&bull; Hướng dẫn đặt hàng trực tuyến</a></li>
+                    </ul>
+                </div>
+                <div b-e8bgn0he1q class="col-md-4">
+                    <h6 b-e8bgn0he1q class="pn-footer-title">Môn Học & Đồ Án</h6>
+                    <p b-e8bgn0he1q class="small text-secondary mb-2">
+                        <strong b-e8bgn0he1q>Bài tập lớn:</strong> Phát triển ứng dụng Web nâng cao (PTWNC)
+                    </p>
+                    <p b-e8bgn0he1q class="small text-secondary mb-2">
+                        <strong b-e8bgn0he1q>Công nghệ:</strong> ASP.NET Core MVC, Entity Framework Core, SQL Server
+                    </p>
+                    <div b-e8bgn0he1q class="d-flex gap-2">
+                        <span b-e8bgn0he1q class="badge bg-primary">ASP.NET Core</span>
+                        <span b-e8bgn0he1q class="badge bg-success">EF Core</span>
+                        <span b-e8bgn0he1q class="badge bg-danger">SQL Server</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- THANH BẢN QUYỀN CHUẨN ĐỀ BÀI -->
+    <div b-e8bgn0he1q class="pn-footer-copy text-center">
+        <div b-e8bgn0he1q class="container">
+            @2012 - Nhà sách trường Đại học công nghiệp Việt - Hung. Địa chỉ: 16 Xuân Khanh, Sơn Tây, Hà Nội &bull; ĐT: 0983308081
+        </div>
+    </div>
+
+    <!-- NÚT CUỘN LÊN ĐẦU TRANG (FLOATING SCROLL TO TOP) -->
+    <div b-e8bgn0he1q id="btnScrollToTop" class="btn-scroll-top" title="Cuộn lên đầu trang">
+        <i b-e8bgn0he1q class="bi bi-chevron-up fs-5"></i>
+    </div>
+
+    <!-- KHỞI TẠO BIẾN TRẠNG THÁI TÀI KHOẢN -->
+    <script>
+        window.IS_USER_LOGGED_IN = false;
+        window.CURRENT_USER_NAME = "";
+        window.CURRENT_USER_ID = "";
+    </script>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/site.js?v=eq27PfSCS59CDiLq2j_htStzJpDRTwgA1kAvOTtp52M"></script>
+    
+</body>
+</html>
