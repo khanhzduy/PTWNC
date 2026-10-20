@@ -361,3 +361,14 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Non-code files (Documents, Slides, Generator, Screenshots)
+*.docx
+*.doc
+*.pdf
+*.pptx
+*.xlsx
+Slides/
+Screenshots/
+DocxGenerator/
+nhasachphuongnam.com*.png
